@@ -188,9 +188,10 @@ img{
     line-height: 1.1rem;
 }
 
-.skills_competences p{
+.skills_competences p, .Work_Volunteer p, .Work_Experience p{
     font-size: 13px;
 }
+
 
 /* Media query for screens with width between 992px and 1300px */
 @media only screen and (992px<=width<=1300px){
