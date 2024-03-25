@@ -1,0 +1,388 @@
+/* Resetting default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Making body relative for positioning */
+body {
+    position: relative;
+}
+
+/* Styling for the navigation bar */
+.navbar {
+    display: flex;
+    background: rgb(29, 2, 2);
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Removing list styles and adjusting spacing for list items in the navigation bar */
+li {
+    list-style: none;
+    justify-content: space-between;
+}
+
+/* Styling for navigation links */
+li a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100px;
+}
+
+/* Adding a text shadow effect on hover for navigation links */
+li a:hover {
+    text-shadow: 3px 3px 3px burlywood, -2px 1px 30px black;
+}
+
+.new_navbar{
+    display: none;
+    width: 100%;
+    margin: 0;
+    height: 10vh;
+    padding: 0;
+    background: rgb(29, 2, 2);
+   }
+
+/* Styling for navbar_list */
+.navbar_list{
+    background-color: rgb(29, 2, 2);
+    color: whitesmoke;
+    display: none;
+}
+
+/* Styling for bars icon */
+.bars{
+    font-size: 40px;
+    margin-left: 10px;
+    color: white;
+}
+
+/* Styling for navbar_list items */
+.navbar_list li{
+    border-bottom: 1px white solid;
+    margin-bottom: 10px;
+    padding: 5px;
+    list-style: none;
+    display: block;
+}
+
+/* Styling for navbar_list item links */
+.navbar_list li a{
+    font-size: 24px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* Styling for navbar_list item hover effect */
+.navbar_list li:hover{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+/* Styling for the main container */
+.container {
+    box-shadow: 0 0 5px rgb(29, 2, 2);
+    background-color: rgba(29, 2, 2, 0.75);
+    border-radius: 5px;
+    margin-left: 240px;
+    position: relative;
+    padding: 10px;
+    width: 60%;
+    margin-top: 20px;
+}
+
+
+/* Styling for the container header */
+.container_header {
+    position: absolute;
+    left: 350px;
+    top: 100px;
+}
+
+/* Styling for headers and text within the container */
+.header {
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.text {
+    font-size: 20px;
+}
+
+/* Styling for icons */
+i {
+    font-size: 30px;
+    color: black;
+    margin-left: 10px;
+}
+
+.icons {
+    margin-top: 20px;
+}
+
+/* Styling for icon hover effect */
+i:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* Styling for input and textarea fields */
+input,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Styling for the button */
+button {
+    margin-left: 300px;
+    margin-right: 300px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+
+/* Styling for button hover effect */
+button:hover {
+    box-shadow: -2px 0px 30px rgb(29, 2, 2);
+    transform: scale(1.1);
+}
+
+/* Styling for button link */
+button a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+/* Styling for the circular image */
+.img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50px;
+}
+
+/* Styling for the second header */
+.second_header {
+    display: none;
+    margin-top: 20px;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Media queries for responsive design */
+@media only screen and (992px<=width<=1300px) {
+    .header {
+        left: 225px;
+        font-size: 28px;
+        display: none;
+    }
+
+    .img {
+        display: none;
+    }
+
+    .container_header {
+        top: 10px;
+    }
+
+    .container_header {
+        left: 250px;
+        text-align: center;
+    }
+
+    .second_header {
+        display: block;
+    }
+
+    .text {
+        font-size: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .icons {
+        text-align: center;
+    }
+
+    i {
+        font-size: 21px;
+    }
+
+    .contact_form {
+        padding-top: 100px;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+    }
+
+    button {
+        margin-right: 0px;
+        margin-left: 260px;
+    }
+}
+
+
+@media only screen and (768px<=width<=992px){
+    .container{
+        margin-left: 150px;
+    }
+    .img {
+        display: none;
+    }
+
+    .header{
+        display: none;
+    }
+    .second_header {
+        display: block;
+        margin-top: 20px;
+        font-size: 30px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .contact_form {
+        padding-top: 100px;
+    }
+
+    .container_header {
+        top: 10px;
+        text-align: center;
+        left: 250px;
+    }
+
+    button {
+        margin-right: 0px;
+        margin-left: 195px;
+        }
+
+    .text {
+        font-size: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .icons {
+        text-align: center;
+    }
+
+    i {
+        font-size: 21px;
+    }
+}
+
+
+@media only screen and (600px<=width<=768px) {
+
+    .container{
+        margin-left: 150px;
+    }
+    .img {
+        display: none;
+    }
+
+    .header{
+        display: none;
+    }
+    .second_header {
+        display: block;
+        margin-top: 20px;
+        font-size: 30px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .contact_form {
+        padding-top: 100px;
+    }
+
+    .container_header {
+        top: 10px;
+        text-align: center;
+        left: 160px;
+    }
+
+    button {
+        margin-right: 0px;
+        margin-left: 120px;
+        }
+
+    .text {
+        font-size: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .icons {
+        text-align: center;
+    }
+
+    i {
+        font-size: 21px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+.container{
+        margin-left: 100px;
+    }
+
+    .container_header {
+        top: 10px;
+        text-align: center;
+        left: 75px;
+    }
+
+    .img {
+        display: none;
+    }
+
+    .second_header {
+        display: block;
+        margin-top: 20px;
+        font-size: 30px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .contact_form {
+        padding-top: 100px;
+        padding-right: 10px;
+    }
+
+    button{
+        margin-left:50px;
+    }
+
+    i {
+        font-size: 21px;
+    }
+
+    .new_navbar{
+        display: block;
+    }
+    .navbar_list{
+        display: none;
+    }
+    .navbar{
+        display: none;
+    }
+}

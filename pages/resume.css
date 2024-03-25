@@ -1,0 +1,286 @@
+/* Resetting default margin, padding, and box-sizing for all elements */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the navigation bar */
+.navbar{
+    display: flex;
+    background: rgb(29, 2, 2);
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+/* Styling for list items in the navigation bar */
+.navbar li{
+    list-style: none;
+    justify-content: space-between;
+}
+
+/* Styling for links in the navigation bar */
+.navbar li a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100px;
+}
+
+/* Hover effect for links in the navigation bar */
+.navbar a:hover{
+    text-shadow: 3px 3px 3px burlywood, -2px 1px 30px black ;
+}
+
+.new_navbar{
+    display: none;
+    width: 100%;
+    margin: 0;
+    height: 10vh;
+    padding: 0;
+    background: rgb(29, 2, 2);
+   }
+
+/* Styling for navbar_list */
+.navbar_list{
+    background-color: rgb(29, 2, 2);
+    color: whitesmoke;
+    display: none;
+}
+
+/* Styling for bars icon */
+.bars{
+    font-size: 40px;
+    margin-left: 10px;
+    color: white;
+}
+
+/* Styling for navbar_list items */
+.navbar_list li{
+    border-bottom: 1px white solid;
+    margin-bottom: 10px;
+    padding: 5px;
+    list-style: none;
+    display: block;
+}
+
+/* Styling for navbar_list item links */
+.navbar_list li a{
+    font-size: 24px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* Styling for navbar_list item hover effect */
+.navbar_list li:hover{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+/* Styling for the main content container */
+.full_container{
+    margin-left: 80px;
+    padding: 20px;
+    background-color: rgba(29, 2, 2, 0.75);
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 85%;
+    }
+
+/* Styling for images */
+img{
+    margin-top: 20px;
+    width: 400px;
+}
+
+
+/* Styling for the top section */
+.top_section{
+    display: flex;
+}
+
+/* Styling for basic information section */
+.basic_info{
+    margin-top: 180px;
+    text-align: center;
+}
+
+/* Styling for heading in basic information */
+.basic_info h2{
+    line-height: 1.5rem;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Styling for paragraphs in basic information */
+.basic_info p{
+    line-height: 1.75rem;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 5px;
+}
+
+.personal_profile{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.personal_profile h4{
+    text-align: center;
+    font-size: 25px;
+}
+/* Styling for the main grid container */
+.container{
+    margin-top: 10px;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding: 10px;
+}
+
+/* Styling for heading 4 in the main container */
+.container h4{
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+/* Styling for heading 5 in the main container */
+.container h5{
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
+/* Styling for heading 6 in the main container */
+.container h6{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+/* Styling for date display in the main container */
+.head_date{
+    display: flex;
+    gap: 10px;
+}
+
+
+/* Style for linkedin link */
+.linkedin{
+    color: black;
+}
+/* Styling for subjects grid in the main container */
+.subjects{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+/* Styling for education section's heading 6 in the main container */
+.container .education h6{
+    font-size: 15px;
+}
+
+/* Styling for list items in the main container */
+.container li{
+    font-size: 13px;
+    line-height: 1.1rem;
+}
+
+/* Media query for screens with width between 992px and 1300px */
+@media only screen and (992px<=width<=1300px){
+
+.basic_info{
+    margin-top: 150px;
+    text-align: center;
+}
+
+.basic_info h2{
+    font-size: 35px;
+}
+
+.basic_info p{
+    font-size: 18px;
+}
+            }
+
+/* Media query for screens with width between 600px and 992px */            
+@media only screen and (600px<=width<=992px){
+
+.full_container{
+    margin-left: 60px;
+}
+
+img{
+        display: none;
+    }
+
+.container{
+    display: block;
+   }
+
+.top_section{
+    display: block;
+}  
+
+.basic_info{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.basic_info h2{
+    font-size:35px ;
+}
+
+                
+                }
+@media only screen and (max-width: 600px){
+ .full_container{
+    margin-left: 50px;
+ }
+
+img{
+        display: none;
+    }
+
+.container{
+    display: block;
+    }
+
+.top_section{
+    display: block;
+}
+
+.basic_info{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.basic_info h2{
+    font-size:30px ;
+}
+
+.basic_info p{
+    font-size: 16px;
+} 
+
+.container h5{
+    font-size: 13px;
+} 
+
+.new_navbar{
+    display: block;
+}
+.navbar_list{
+    display: none;
+}
+.navbar{
+    display: none;
+}
+
+                }

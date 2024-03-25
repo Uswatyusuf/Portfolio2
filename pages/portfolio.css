@@ -1,0 +1,1098 @@
+/* Resetting margin and padding for all elements */
+*{
+margin: 0;
+padding: 0;
+scroll-behavior: smooth;
+text-decoration: none;
+}
+
+/* General styling for the body of the page */
+body{
+position: relative;
+opacity: 0.9;
+}
+
+/* Styling for the navigation bar */
+.navbar{
+display: flex;
+background: rgb(29, 2, 2);
+height: 10vh;
+justify-content: space-around;
+align-items: center;
+}
+
+/* Styling for list items */
+li{
+list-style: none;
+justify-content: space-between;
+}
+
+
+/* Styling for links inside list items */
+li a{
+text-decoration: none;
+color: whitesmoke;
+font-size: 20px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 100px;
+}
+
+/* Hover effect for links */
+li a:hover{
+text-shadow: 3px 3px 3px burlywood, -2px 1px 30px black ;
+}
+
+/* Styling for navbar for smaller screens */
+.new_navbar{
+    display: none;
+    width: 100%;
+    margin: 0;
+    height: 10vh;
+    padding: 0;
+    background: rgb(29, 2, 2);
+   }
+
+/* Styling for navbar_list */
+.navbar_list{
+    background-color: rgb(29, 2, 2);
+    color: whitesmoke;
+    display: none;
+}
+
+/* Styling for bars icon */
+.bars{
+    font-size: 40px;
+    margin-left: 10px;
+    color: white;
+}
+
+/* Styling for navbar_list items */
+.navbar_list li{
+    border-bottom: 1px white solid;
+    margin-bottom: 10px;
+    padding: 5px;
+    list-style: none;
+    display: block;
+}
+
+/* Styling for navbar_list item links */
+.navbar_list li a{
+    font-size: 24px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* Styling for navbar_list item hover effect */
+.navbar_list li:hover{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+/*style for varous sections*/
+section{
+margin-left: 20px;
+width: 100%;
+height: 100vh;
+}
+
+/* Styling for header of the sections */
+.header{
+font-size: 35px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: bolder;
+margin-bottom:10px;
+text-align: center;
+text-transform: uppercase;
+}
+
+/* Styling for home section */
+#home{
+margin-top: 10px;
+width: 100%;
+height: 100vh;
+display: flex;
+gap: 30px;
+}
+
+/* Styling for background image in home section */
+#bg_image{
+position: relative;
+width: 390px;
+height: 390px;
+margin-top: 50px;
+margin-left: 15px;
+}
+
+/* Styling for home image in home section */
+#home_image{
+width: 500px;
+height: 500px;
+position: absolute;
+left: 10px;
+}
+
+/* Styling for various heading levels */
+h2{
+font-size: 30px;
+font-family: Impact, Haettenschweiler, sans-serif;
+letter-spacing: 2px;
+margin-left: 30px;
+}
+
+h4{
+font-size: 80px;
+font-weight: 900px;
+margin-top: 10px;
+margin-left: 30px;
+}
+
+/* Styling for paragraph text in a section */
+.text p{
+line-height: 1.0em;
+margin-left: 30px;
+}
+
+/* Styling for a text section */
+.text{
+margin-top: 150px;
+}
+
+/* Styling for container in the about me section */
+.container{
+margin-top: 40px;
+width: 900px;
+height:510px;
+background-color: rgb(29, 2, 2);
+color: white;
+padding: 10px;
+border-radius: 10px;
+margin-left: 60px;
+box-shadow: 2px 0px 30px black;
+}
+
+/* Styling for paragraphs inside a container */
+.container p{
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 10%;
+padding-right: 10%;
+font-size: 20px;
+border-bottom: 2px solid rgba(48, 46, 46,0.5);
+}
+
+/* Styling for various buttons */
+button{
+margin-top: 20px;
+width: 150px;
+height: 50px;
+margin-left: 50px;
+background-color: rgba(26, 10, 10,0.5);
+}
+
+/* Styling for a link inside a button */
+button a{
+font-size: 15px;
+font-weight: 100px;
+font-family: 'Times New Roman', Times, serif;
+color: black;
+}
+
+/* Styling for the about me section */
+#aboutme{
+display: flex;
+gap: 10px;
+}
+
+/* Styling for images inside the about me section */
+#aboutme img{
+margin-left: 10px;
+width: 55%;
+}
+
+/* Hover effect for buttons */
+button:hover{
+transform: scale(1.1);
+box-shadow: 2px 2px rgb(29, 2, 2);
+}
+
+/* Styling for a skills section */
+.skills_section{
+height: 50vh;
+}
+
+/* Styling for images inside the skills section */
+.skills_section img{
+width: 100px;
+height: 100px;
+}
+
+/* Styling for a skills container */
+.skills{
+display: flex;
+gap: 30px;
+margin-left: 10px;
+margin-top: 30px;
+}
+
+/* Styling for a paragraph inside a skills section */
+.skill p{
+font-size: 20px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: center; 
+}
+
+/* Styling for a video container */
+.slide_container{
+display: flex;
+margin: 5px 15px;
+} 
+
+
+/* Styling for video slide */
+.slide_video{
+width: 50%;
+height: 100vh;
+}
+
+/* setting width and height for the thumbnail images and videos */
+.row img, .row_video img{
+    width: 100px;
+    height: 100px;
+}
+
+
+/* Styling for individual slides */
+#slide1, #slide2, #slide3{
+width: 45%;
+height: 60vh;
+position: absolute; 
+top: 1765px;
+}
+
+/* Initial opacity for the first slide */
+#slide1{
+opacity: 1;
+}
+
+/* Initial opacity for the second slide */
+#slide2{
+opacity: 0;
+}
+
+
+/* Initial opacity for the third slide */
+#slide3{
+opacity: 0;
+}
+
+/* Styling for container of the image gallery */
+.slide_images{
+width: 600px; 
+height: 600px;
+margin-top: 24px;
+margin-left: 15px;
+}
+
+#slideimage1, #slideimage2, #slideimage3, #slideimage4, #slideimage5, #slideimage6{
+    width: 100%;
+    height: 60vh;
+}
+.mySlides {
+display: none;
+}
+
+/*specifying a pointer for the cursor when on the thumbnail images */
+.cursor {
+cursor: pointer;
+}
+
+/* Styling for container of the thumbnail images */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Styling for container of the thumbnail videos */
+.row_video{
+position: absolute;
+bottom: 70px;
+}
+
+.row_video:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Styling for a individual thumbnail images*/
+.column {
+float: left;
+width: 16.66%;
+}
+
+/* Styling for a individual thumbnail videos*/
+.column_video{
+float: left;
+width: 16.66%;
+} 
+
+/* Styling for each of the individual image/video*/
+.demo, .video_demo {
+opacity: 0.6;
+width: 100%;
+}
+
+
+/* Styling for an active state and hover effect for each of the individual image/video */
+.active,
+.demo:hover, .video_demo:hover {
+opacity: 1;
+}
+
+/* Styling for a grid container for project cards */
+.project_cards{
+display: grid;
+grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); /* Responsive grid with minimum 300px width columns */
+gap: 50px; /* Gap between grid items */
+margin-left: 15px; /* Margin on the left side of the grid */
+margin-right: 15px;
+box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+
+
+/* Styling for images inside project cards */
+.project_cards img{
+    width: 100%; /* Make the image width 100% of its container */
+    height: 250px; /* Set a fixed height for the images */
+    border-radius: 10px; 
+}    
+
+/* Styling for h3 headings in the project section */
+.projects h3{
+margin-bottom: 10px;
+margin-left: 20px;
+font-size: 25px;
+}
+
+/* Styling for the project section header */
+.project_header{
+margin-top: 50px;
+}
+
+/* Styling for each card */
+.card{
+box-shadow: 0 0 3px rgba(0,0,0,0.8);
+width: 100%;
+display: block;
+background-color: rgb(29, 2, 2);
+border-radius: 10px;
+}
+
+/* Styling for a blurred card  */
+.card_blurred{
+box-shadow: 0 0 3px rgba(0,0,0,0.8);
+width: 100%;
+display: block;
+opacity: 0.4;
+position: relative;
+background-color: rgb(29, 2, 2);
+border-radius: 10px;
+}
+
+/* Styling for specific elements inside the blurred card */
+.card_blurred img,.card_blurred .content, .card_blurred .card_links{
+opacity: 0.2;
+}
+
+/* Hover effect for cards */
+.card:hover{
+transform: scale(1.0);
+box-shadow: -2px 0px 30px black;
+}
+
+/* Styling for a "coming soon" label */
+.coming_soon{
+position: absolute;
+font-size: 25px;
+font-weight: bold;
+left: 1050px;
+top: 2658px;
+text-transform: uppercase;
+}
+
+/* Styling for  "coming soon" label for Data Analysis Project */
+.coming_soon_da{
+position: absolute;
+font-size: 25px;
+font-weight: bold;
+left: 600px;
+top: 3180px;
+text-transform: uppercase;
+text-align: center;
+}
+
+/* Styling for  "coming soon" label for Artificial Intelligence Projects */
+
+.coming_soon_at_1{
+position: absolute;
+font-size: 25px;
+font-weight: bold;
+left: 120px;
+top: 3705px;
+text-transform: uppercase;
+}
+
+.coming_soon_at_2{
+right: 550px;
+top: 3705px;
+position: absolute;
+font-size: 25px;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+/* Styling for content in each card*/
+.content{
+align-items: center;
+justify-content: center;
+font-size: 20px;
+color: whitesmoke;
+padding: 5px;
+}
+
+/* Styling for content header in each card*/
+.content h4{
+font-size: 20px;
+text-align: center;
+justify-content: center;
+}
+
+/* Styling for a container with links in the cards*/
+.card_links{
+display: flex;
+gap: 15px;
+justify-content: center;
+align-items: center;
+}
+
+.card_links a{
+margin: 10px 0px;
+color: whitesmoke;
+font-size: 18px;
+border-radius: 5px;
+font-weight: bold;
+background: rgba(22, 20, 20,0.5);
+padding: 9px;
+}
+
+/* Styling for the hover  effect on the card links */
+.card_links a:hover{
+transform: scale(1.1);
+box-shadow: 2px 2px black;
+}
+
+/* Media query for screen width between 1300px and 13500px */
+@media only screen and (1300px<=width<=1350px){
+    #slide1, #slide2, #slide3{
+        margin-left: -10px;
+     }
+     
+ .row_video{
+     margin-left: -25px;
+     width: 1300px;
+ }
+
+.coming_soon,.coming_soon_at_1,.coming_soon_at_2,.coming_soon_da{
+    display: none;
+}
+
+.container{
+    width: 2200px;
+    height:560px;
+    margin-left: 70px;
+}
+}
+
+/* Media query for screen width between 1200px and 1300px */
+@media only screen and (1200px<=width<=1300px){
+    #slide1, #slide2, #slide3{
+        margin-left: -10px;
+     }
+     
+ .row_video{
+     margin-left: -25px;
+     width: 1200px;
+ }
+
+.coming_soon,.coming_soon_at_1,.coming_soon_at_2,.coming_soon_da{
+    display: none;
+}
+
+.container{
+    width: 2200px;
+    height:560px;
+    margin-left: 70px;
+}
+}
+
+/* Media query for screen width between 1100px and 1200px */
+@media only screen and (1100px<=width<=1200px){
+    #slide1, #slide2, #slide3{
+        margin-left: -10px;
+     }
+     
+ .row_video{
+     margin-left: -25px;
+     width: 1040px;
+ }
+.coming_soon,.coming_soon_at_1,.coming_soon_at_2,.coming_soon_da{
+display: none;
+}
+
+.container{
+width: 2400px;
+height:560px;
+margin-left: 70px;
+}
+
+}
+
+/* Media query for screen width between 1000px and 1100px */
+@media only screen and (1000px<=width<=1100px){
+    #slide1, #slide2, #slide3{
+       margin-left: -10px;
+    }
+    
+.row_video{
+    margin-left: -25px;
+    width: 970px;
+}
+.coming_soon,.coming_soon_at_1,.coming_soon_at_2,.coming_soon_da{
+    display: none;
+}
+
+.container{
+    width: 2600px;
+    height:560px;
+    margin-left: 30px;
+}
+}
+
+
+/* Media query for screen width between 992px and 1000px */
+@media only screen and (992px<=width<=1000px){
+.skills{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 100px;
+    }
+
+#home{
+margin-top: 50px;
+gap: 2px;
+    }
+
+#home_image{
+width: 350px;
+height: 350px;
+margin-left: 15px;
+    }
+
+#bg_image{
+height: 330px;
+width: 330px;
+margin-left: 0px;
+    }
+
+.text h4{
+font-size: 32px;
+margin-left: 0px;
+}
+
+.text{
+margin-top: 80px;
+}     
+
+.text p{
+line-height: 1.0rem;
+font-size: 15px;
+margin-left: 0px;
+}
+
+button{
+width: 100px;
+margin-left: 18px;
+padding: 2px;
+}
+    
+.button a{
+margin-top: 0px;
+padding: 2px;
+}
+
+.slide_container{
+display: block;
+} 
+
+.card, .card_blurred{
+margin-left: 30px;
+width: 80%;
+}
+
+#aboutme_image{
+display: none;
+}
+
+.container{
+margin-left: 220px;
+width: 500px;
+}
+
+#slide1, #slide2, #slide3{
+width: 100%;
+top: 2050px;
+}
+
+.header_project{
+margin-top: 205px;
+}
+
+.projects h3{
+margin-top: 70px;
+}
+
+.row_video{
+width: 100%;
+top: 2455px;
+}
+
+.column_video{
+width: 33.33%;
+}
+
+.slide_images{
+    width: 85%;
+margin-top: 160px;
+height: 80vh;
+}
+
+.aboutme_header{
+margin-top: 0px;
+}
+
+.coming_soon, .coming_soon_da, .coming_soon_at_1, .coming_soon_at_2{
+    display: none;
+    }
+}
+
+
+/* Media query for screen width between 940px and 992px */
+@media only screen and (940px<=width<=992px){
+.skills{
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+box-sizing: border-box;
+text-align: center;
+margin-bottom: 1000px;
+    }
+
+#home{
+margin-top: 50px;
+gap: 2px;
+    }
+
+#home_image{
+width: 350px;
+height: 350px;
+margin-left: 15px;
+    }
+
+#bg_image{
+height: 330px;
+width: 330px;
+margin-left: 0px;
+    }
+
+.text h4{
+font-size: 32px;
+margin-left: 0px;
+    }
+
+.text{
+margin-top: 80px;
+}     
+
+.text p{
+line-height: 1.0rem;
+font-size: 15px;
+margin-left: 0px;
+}
+
+button{
+width: 100px;
+margin-left: 18px;
+padding: 2px;
+}
+    
+.button a{
+margin-top: 0px;
+padding: 2px;
+}
+
+.slide_container{
+display: block;
+} 
+
+
+.card, .card_blurred{
+margin-left: 30px;
+width: 80%;
+}
+
+#aboutme_image{
+display: none;
+}
+
+.container{
+margin-left: 190px;
+width: 500px;
+}
+
+#slide1, #slide2, #slide3{
+width: 100%;
+top: 2000px;
+}
+
+.header_project{
+margin-top: 205px;
+}
+
+.projects h3{
+margin-top: 70px;
+}
+.row_video{
+width: 100%;
+top: 2410px;
+}
+
+.column_video{
+width: 33.33%;
+}
+
+.slide_images{
+margin-top: 120px;
+width: 85%;
+}
+
+.aboutme_header{
+margin-top: 0px;
+}
+
+.coming_soon, .coming_soon_da, .coming_soon_at_1, .coming_soon_at_2{
+    display: none;
+    }
+        }
+
+
+/* Media query for screen width between 680px and 940px */    
+@media only screen and (680px<=width<=940px){
+.skills{
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+box-sizing: border-box;
+text-align: center;
+margin-bottom: 1000px;
+    }
+
+#home{
+margin-top: 50px;
+gap: 2px;
+    }
+
+#home_image{
+width: 350px;
+height: 350px;
+margin-left: 15px;
+    }
+
+#bg_image{
+height: 330px;
+width: 330px;
+margin-left: 0px;
+    }
+
+.text h4{
+font-size: 32px;
+margin-left: 0px;
+    }
+
+.text{
+margin-top: 80px;
+}     
+
+.text p{
+line-height: 1.0rem;
+font-size: 15px;
+margin-left: 0px;
+}
+
+button{
+width: 100px;
+margin-left: 18px;
+padding: 2px;
+}
+    
+.button a{
+margin-top: 0px;
+padding: 2px;
+
+}
+
+.slide_container{
+display: block;
+} 
+
+.slide_images{
+width: 85%;
+margin-top: 100px;
+height: 80vh;
+}
+
+.projects h3{
+margin-bottom: 20px;
+}
+
+.card, .card_blurred{
+margin-left: 30px;
+width: 80%;
+}
+
+#aboutme_image{
+display: none;
+}
+
+.container{
+margin-left: 80px;
+width: 500px;
+}
+
+#slide1, #slide2, #slide3{
+width: 100%;
+top: 1990px;
+margin-left: 0px;
+}
+
+.header_project{
+margin-top: 200px;
+}
+
+.projects h3{
+margin-top: 70px;
+}
+.row_video{
+width: 100%;
+top: 2400px;
+}
+
+.column_video{
+width: 33.33%;
+}
+
+
+
+.aboutme_header{
+margin-top: 0px;
+}
+
+.coming_soon, .coming_soon_da, .coming_soon_at_1, .coming_soon_at_2{
+    display: none;
+    }
+        }
+
+
+/* Media query for screen width between 600px and 680px */
+@media only screen and (600px<=width<=680px){
+.skills{
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+box-sizing: border-box;
+text-align: center;
+margin-bottom: 1000px;
+        }
+
+#home{
+margin-top: 50px;
+gap: 2px;
+            }
+#home_image{
+    width: 350px;
+    height: 350px;
+    margin-left: 15px;
+}
+            
+#bg_image{
+    height: 330px;
+    width: 330px;
+    margin-left: 0px;
+}
+
+            
+.text h4{
+    font-size: 32px;
+    margin-left: 0px;
+}
+
+.text{
+margin-top: 80px;
+    }     
+            
+.text p{
+line-height: 1.0rem;
+font-size: 15px;
+margin-left: 0px;
+}
+                
+button{
+width: 100px;
+margin-left: 18px;
+padding: 2px;
+}
+                    
+.button a{
+margin-top: 0px;
+padding: 2px;
+    }
+            
+.slide_container{
+display: block;
+} 
+            
+            
+.card, .card_blurred{
+margin-left: 30px;
+width: 80%;
+}
+
+
+#aboutme_image{
+display: none;
+}
+            
+.container{
+margin-left: 45px;
+width: 500px;
+            }
+
+.header_project{
+                margin-top: 220px;
+                            }
+.slide_video, .slide_images{
+            display: none;
+                            }
+ 
+            
+.aboutme_header{
+margin-top: 0px;
+            }
+            
+.coming_soon, .coming_soon_da, .coming_soon_at_1, .coming_soon_at_2{
+                display: none;
+                }
+        }
+
+/* Media query for screen width below 600px */
+@media only screen and (max-width: 600px){
+.skills{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 10px;
+box-sizing: border-box;
+text-align: center;
+margin-bottom: 10px;
+}
+    
+#home_image{
+width: 300px;
+height: 300px;
+margin-left: 100px;
+}
+
+#bg_image{
+height: 300px;
+width: 300px;
+margin-left: 80px;
+}
+
+#home{
+display: block;
+}
+
+.text{
+margin-top: 10px;
+}
+
+.text h4{
+font-size: 28px;
+margin-left: 100px;
+}
+
+.text h2{
+margin-left: 120px;
+}
+
+.slide_video{
+top: 5350px;
+}
+
+.slide_container{
+display: block;
+top: 1000px;
+} 
+
+
+.card, .card_blurred{
+margin-left: 30px;
+width: 80%;
+}
+
+#aboutme_image{
+display: none;
+}
+
+.container{
+margin-left: 5px;
+margin-right: 5px;
+width: 1000px;
+}
+
+.coming_soon, .coming_soon_da, .coming_soon_at_1, .coming_soon_at_2{
+    display: none;
+    }
+
+.header_project{
+margin-top: 220px;
+}
+
+.slide_video, .slide_images{
+    display: none;
+}
+
+.new_navbar{
+    display: block;
+}
+.navbar_list{
+    display: none;
+}
+.navbar{
+    display: none;
+}
+}
+
