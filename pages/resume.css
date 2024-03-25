@@ -175,11 +175,7 @@ img{
 .linkedin{
     color: black;
 }
-/* Styling for subjects grid in the main container */
-.subjects{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-}
+
 
 /* Styling for education section's heading 6 in the main container */
 .container .education h6{
