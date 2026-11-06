@@ -37,95 +37,209 @@
         </div> 
 
 <!-- Home section -->
-<section id="home">
-    <!-- Image and text content for the home section -->
-<div class="image">
-    <img src="images/square-with-rounded-sides (2).png" alt="" id="bg_image">
-<img src="images/laptop_girl-removebg-preview.png" alt="" srcset="" id="home_image">
-</div>
 
-<div class="text">
-<h2>Hello World!</h2>
-<h4>I am Uswat Yusuf</h4>
-<p>An individual who prioritises honesty, excellence and resilience  in all that they do. I am currently looking for opportunities to apply my love for problem solving, mathematics and artificial intelligence to various industries to show my skills, develop my abilities and plan for my future career path.</p>
+<!-- Home section -->
+<section id="home" class="home_hero">
 
- <!-- Buttons with links to different sections -->
+    <!-- Illustration and research highlight -->
+    <div class="image hero_visual">
 
-  <!-- Button to the "About Me" section -->
-<button><a href="#aboutme">About Me</a></button>
-<!-- Button to the "Résumé" section -->
-<button><a href="Pages/resume.html">Résumé</a></button>
-</div>
-</section>
+        <!-- Burgundy background shape -->
+        <!-- <img
+            src="images/square.png"
+            alt=""
+            id="bg_image"
+        > -->
 
+        <!-- Main illustration -->
+        <img
+            src="images/grad-pic-2.jpeg"
+            alt="Illustration of a woman working on a laptop"
+            id="home_image"
+        >
 
-<!-- About Me section -->
-
-<!-- Header for the About Me section -->
-<h2 class="header aboutme_header">About me</h2>
-<section id="aboutme" >
-<!-- Container for about me content -->
-<div class="container">
-<!-- Personal information -->
-<p>Name: Uswat Yusuf</p>
-<p>Nationality: Nigerian</p>
-<p>Course of study: Bsc (Hons) Applied Artificial Intelligence</p>
-<p>University: University of Bradford</p>
-<p>Expected graduation date: July 2026</p>
-<p>Certification: Web Design, Internet and Core Computing from New Horizons Institute</p>
-<p>Fun fact: I published a book called "Crossroads at Childhood" at 16. I am very passionate about art especially written words like novels and poetry. I love to read other people's work as it is an expression of their creativity. In my spare time, I also like to write poetry to express my thoughts and feelings. </p>
-</div>
-
-<!-- Image for the about me section -->
-<img src="images/book_girl-removebg-preview.png" alt="" srcset="" id="aboutme_image">
-</section>
-
-
-<!-- skills section -->
-<section class="skills_section" id="skills_section">
-    <!-- Header for the skills section -->
-    <h2 class="header">Skills</h2>
-    <!-- Container for displaying skills -->
-    <div class="skills">
-
-<!-- Individual skill with icon and text -->
-    <div class="skill">
-    <img src="images/html (1).png" alt="" srcset="">
-    <p>HTML5</p>
-</div>
-
-<div class="skill">
-    <img src="images/css-3.png" alt="" srcset="">
-    <p>CSS</p>
-</div>
-
-    <div class="skill">
-    <img src="images/java-script.png" alt="" srcset="">
-    <p>Javascript</p>
-</div>
-
-    <div class="skill">
-    <img src="images/python.png" alt="" srcset="">
-    <p>Python</p>
-</div>
-
-<div class="skill">
-    <img src="images/pandas.png" alt="" srcset="">
-    <p>Pandas</p>
-</div>
-
-<div class="skill">
-<img src="images/numpy.png" alt="" srcset="">
-<p>Numpy</p>
-</div>
-
-<div class="skill">
-    <img src="images/Matplotlib.png" alt="" srcset="">
-    <p>Matplotlib</p>
-    </div>
+        <!-- Highlighting a measurable research achievement -->
+        <!-- <div class="research_highlight">
+            <p class="highlight_label">RESEARCH HIGHLIGHT</p>
+            <h3>Up to 16%</h3>
+            <p>
+                Improvement in code completion
+                performance against a baseline
+            </p>
+        </div> -->
 
     </div>
+
+    <!-- Main introduction -->
+    <div class="text hero_content">
+
+        <!-- Small greeting above the name -->
+        <p class="hero_greeting">HELLO WORLD! 👋</p>
+
+        <!-- Main heading -->
+        <h1 class="hero_title">
+            Hi, I'm <span>Uswat Yusuf.</span>
+        </h1>
+
+        <!-- Professional tagline -->
+        <h2 class="hero_tagline">
+            Exploring data. Building meaningful solutions.
+        </h2>
+
+        <!-- Brief professional introduction -->
+        <p class="hero_description">
+            I'm an MSc Data Science student and First-Class
+            Applied AI graduate with experience in AI research,
+            software development and consultancy.
+
+            I enjoy exploring problems, experimenting with ideas
+            and turning them into practical solutions.
+        </p>
+
+        <!-- Main areas of interest -->
+        <div class="hero_tags">
+            <span>Data Science</span>
+            <span>AI Research</span>
+            <span>Software Development</span>
+        </div>
+
+        <!-- Links to projects and resume -->
+        <div class="hero_buttons">
+
+            <a href="#projects" class="primary_button">
+                Explore My Projects
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <a href="pages/resume.html" class="secondary_button">
+                View My Résumé
+            </a>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+
+<!-- ==========================================
+     ABOUT ME SECTION
+     ========================================== -->
+
+<section id="aboutme" class="about_section">
+
+    <!-- About section heading and introduction -->
+    <div class="about_intro">
+
+        <!-- Small section label -->
+        <p class="about_label">01 / GET TO KNOW ME</p>
+
+        <!-- Main heading -->
+        <h2 class="about_heading">
+            More than just <span>code &amp; data.</span>
+        </h2>
+
+        <!-- Brief introduction -->
+        <p class="about_description">
+            A few things that shape how I think,
+            work and connect with others.
+        </p>
+
+    </div>
+
+    <!-- Container for the four personal cards -->
+    <div class="about_cards">
+
+        <!-- Card 1: Curiosity -->
+        <article class="about_card">
+
+            <div class="about_card_header">
+                <span class="about_number">01</span>
+                <i class="bi bi-search" aria-hidden="true"></i>
+            </div>
+
+            <h3>Curious by nature</h3>
+
+            <p>
+                I enjoy exploring new ideas, asking questions
+                and understanding how things work.
+                Whether I'm investigating data or learning
+                something unfamiliar, curiosity keeps
+                me motivated.
+            </p>
+
+        </article>
+
+        <!-- Card 2: Problem-solving -->
+        <article class="about_card">
+
+            <div class="about_card_header">
+                <span class="about_number">02</span>
+                <i class="bi bi-puzzle" aria-hidden="true"></i>
+            </div>
+
+            <h3>A problem solver</h3>
+
+            <p>
+                I enjoy working through challenges and
+                finding practical solutions, whether
+                that's researching an idea, debugging
+                software or experimenting with different
+                approaches.
+            </p>
+
+        </article>
+
+        <!-- Card 3: Helping others -->
+        <article class="about_card">
+
+            <div class="about_card_header">
+                <span class="about_number">03</span>
+                <i class="bi bi-people" aria-hidden="true"></i>
+            </div>
+
+            <h3>People matter to me</h3>
+
+            <p>
+                Through mentoring and my experience as
+                a Peer Assisted Learning Leader, I've
+                enjoyed helping students work through
+                difficult concepts and become more
+                confident in their abilities.
+                It's something I find genuinely rewarding.
+            </p>
+
+        </article>
+
+        <!-- Card 4: Creativity -->
+        <article class="about_card">
+
+            <div class="about_card_header">
+                <span class="about_number">04</span>
+                <i class="bi bi-journal-text" aria-hidden="true"></i>
+            </div>
+
+            <h3>Creative at heart</h3>
+
+            <p>
+                I've always loved reading novels and
+                expressing ideas through writing.
+                I published a book called
+                <em>Crossroads at Childhood</em> at 16,
+                and writing poetry continues to be
+                a creative outlet for me.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+
 
 
 <!-- Project section -->
@@ -133,94 +247,7 @@
  <!-- Header for the projects section -->
 <h2 class="header header_project">Project</h2>
 <!-- Container for project content -->
-<div class="slide_container">  
-<!-- Video slides with associated thumbnails -->
 
-<div class="slide_video">
-<!-- Videos with unique ids -->
-<div class="videos"> <video src="videos/Face Detection_recognition.mp4" id="slide1" autoplay muted ></video></div>
-<div class="videos"><video src="videos/Currency_converter.mp4" id="slide2" autoplay muted></video></div>
-<div class="video"><video src="videos/Fashion_hub.mp4" id="slide3" autoplay muted></video></div>
-
-<!-- Thumbnails for video slides -->
-<div class="row_video">
-<!-- Columns for individual videos -->
-<div class="column_video">
-        <video src="videos/Face Detection_recognition.mp4"  class="video_demo cursor" autoplay muted width="100%" onclick="currentVideo(1)"></video>
-    </div>
-
-<div class="column_video">
-        <video src="videos/Currency_converter.mp4" class="video_demo cursor" autoplay muted width="100%" onclick="currentVideo(2)"></video>
-    </div>
-
-<div class="column_video">
-        <video src="videos/Fashion_hub.mp4"  class="video_demo cursor"  autoplay muted width="100%" onclick="currentVideo(3)"></video>
-    </div> 
-    
-    </div> 
-
-</div>
-
-
-<!-- Container for the image gallery -->
-<div class="slide_images">
-<!-- Full-width images -->
-<div class="mySlides">
-    <img src="images/Fashion_hub.png" style="width:100%" id="slideimage1">
-</div>
-
-<div class="mySlides">
-    <img src="images/Currency_converter.png" style="width:100%" id="slideimage2">
-</div>
-
-<div class="mySlides">
-    <img src="images/data_analysis.png" style="width:100%" id="slideimage3">
-</div>
-
-<div class="mySlides">
-    <img src="images/Detection.png" style="width:100%" id="slideimage4">
-</div>
-
-<div class="mySlides">
-    <img src="images/recognition.png" style="width:100%" id="slideimage5">
-</div>
-
-<div class="mySlides">
-    <img src="images/resume.png" style="width:100%" id="slideimage6">
-</div>
-
-<!-- Thumbnail images -->
-<div class="row">
-
-    <div class="column">
-    <img class="demo cursor" src="images/Fashion_hub.png" style="width:100%" onclick="currentSlide(1)" >
-    </div>
-
-    <div class="column">
-    <img class="demo cursor" src="images/Currency_converter.png" style="width:100%" onclick="currentSlide(2)" >
-    </div>
-
-    <div class="column">
-    <img class="demo cursor" src="images/data_analysis.png" style="width:100%" onclick="currentSlide(3)" >
-    </div>
-
-    <div class="column">
-    <img class="demo cursor" src="images/Detection.png" style="width:100%" onclick="currentSlide(4)" >
-    </div>
-
-    <div class="column">
-    <img class="demo cursor" src="images/recognition.png" style="width:100%" onclick="currentSlide(5)" >
-    </div>
-
-    <div class="column">
-    <img class="demo cursor" src="images/resume.png" style="width:100%" onclick="currentSlide(6)" >
-    </div>
-
-</div>
-
-</div>
-
-</div>
 
 <!-- Web Application projects -->
 <h3>Website/Web Applications</h3>
@@ -319,6 +346,52 @@
 </div>
 
 
+</section>
+
+<!-- skills section -->
+<section class="skills_section" id="skills_section">
+    <!-- Header for the skills section -->
+    <h2 class="header">Skills</h2>
+    <!-- Container for displaying skills -->
+    <div class="skills">
+
+<!-- Individual skill with icon and text -->
+    <div class="skill">
+    <img src="images/html (1).png" alt="" srcset="">
+    <p>HTML5</p>
+</div>
+
+<div class="skill">
+    <img src="images/css-3.png" alt="" srcset="">
+    <p>CSS</p>
+</div>
+
+    <div class="skill">
+    <img src="images/java-script.png" alt="" srcset="">
+    <p>Javascript</p>
+</div>
+
+    <div class="skill">
+    <img src="images/python.png" alt="" srcset="">
+    <p>Python</p>
+</div>
+
+<div class="skill">
+    <img src="images/pandas.png" alt="" srcset="">
+    <p>Pandas</p>
+</div>
+
+<div class="skill">
+<img src="images/numpy.png" alt="" srcset="">
+<p>Numpy</p>
+</div>
+
+<div class="skill">
+    <img src="images/Matplotlib.png" alt="" srcset="">
+    <p>Matplotlib</p>
+    </div>
+
+    </div>
 </section>
 
 <!-- Link to Javascript-->

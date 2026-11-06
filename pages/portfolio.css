@@ -15,7 +15,8 @@ opacity: 0.9;
 /* Styling for the navigation bar */
 .navbar{
 display: flex;
-background: rgb(29, 2, 2);
+/* background: rgb(29, 2, 2); */
+background: #6d2945;
 height: 10vh;
 justify-content: space-around;
 align-items: center;
@@ -49,12 +50,12 @@ text-shadow: 3px 3px 3px burlywood, -2px 1px 30px black ;
     margin: 0;
     height: 10vh;
     padding: 0;
-    background: rgb(29, 2, 2);
+    background: #6d2945;
    }
 
 /* Styling for navbar_list */
 .navbar_list{
-    background-color: rgb(29, 2, 2);
+    background-color: #6d2945;
     color: whitesmoke;
     display: none;
 }
@@ -105,13 +106,220 @@ text-align: center;
 text-transform: uppercase;
 }
 
-/* Styling for home section */
-#home{
-margin-top: 10px;
-width: 100%;
-height: 100vh;
-display: flex;
-gap: 30px;
+
+/* ==========================================
+   UPDATED HOMEPAGE STYLES
+   ========================================== */
+
+/* Styling for the home section layout */
+#home.home_hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: 45px;
+
+    width: min(1250px, calc(100% - 48px));
+    height: auto;
+    min-height: 80vh;
+    margin: 20px auto 60px;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+
+/* Styling for the container holding the graduation photo */
+.hero_visual {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: auto;
+    margin: 0 auto;
+}
+
+/* Styling for the graduation photo */
+.hero_visual #home_image {
+    position: static;
+    display: block;
+
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+
+    margin: 0 auto;
+    border-radius: 12px;
+
+    object-fit: contain;
+
+    /* Border and shadow */
+   border: 3px solid #e7d6dd;
+   box-shadow: 0 10px 30px rgba(109, 41, 69, 0.18);
+}
+
+
+/* Styling for the burgundy background image */
+.hero_visual #bg_image {
+    position: absolute;
+    width: 78%;
+    height: auto;
+    top: 8%;
+    left: 6%;
+    margin: 0;
+}
+
+
+/* Styling for the research achievement card */
+.research_highlight {
+    position: absolute;
+    right: -10px;
+    bottom: 0;
+    z-index: 2;
+
+    width: 165px;
+    padding: 12px;
+
+    background: white;
+    border: 1px solid #e8d6dc;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(29, 2, 2, 0.12);
+}
+
+/* Styling for the research card label */
+.research_highlight .highlight_label {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #755263;
+}
+
+/* Styling for the research result */
+.research_highlight h3 {
+    font-size: 29px;
+    color: #6d2945;
+    margin: 7px 0;
+}
+
+/* Styling for the research card description */
+.research_highlight p {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #44363c;
+}
+
+/* Styling for the introduction container */
+.hero_content.text {
+    margin-top: 0;
+    min-width: 0;
+}
+
+/* Styling for the Hello World greeting */
+.hero_content .hero_greeting {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #6d2945;
+}
+
+/* Styling for the main name heading */
+.hero_content .hero_title {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(38px, 4vw, 58px);
+    line-height: 1.15;
+    color: #21171c;
+}
+
+/* Highlighting the name in burgundy */
+.hero_title span {
+    color: #6d2945;
+}
+
+/* Styling for the professional tagline */
+.hero_content .hero_tagline {
+    margin: 18px 0;
+    font-family: Arial, sans-serif;
+    font-size: clamp(20px, 1.8vw, 25px);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: #35272e;
+}
+
+/* Styling for the introduction paragraph */
+.hero_content .hero_description {
+    margin: 0;
+    max-width: 560px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #53464c;
+}
+
+/* Styling for the skills and interests tags */
+.hero_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+/* Styling for individual skill tags */
+.hero_tags span {
+    padding: 8px 13px;
+    border-radius: 20px;
+
+    background: #f2e7eb;
+    color: #6d2945;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Styling for the button container */
+.hero_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 28px;
+}
+
+/* Shared styling for the homepage buttons */
+.hero_buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 46px;
+    padding: 12px 20px;
+    border-radius: 7px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: transform 0.2s ease,
+                background-color 0.2s ease;
+}
+
+/* Styling for the primary projects button */
+.hero_buttons .primary_button {
+    background: #6d2945;
+    color: white;
+}
+
+/* Styling for the secondary resume button */
+.hero_buttons .secondary_button {
+    background: white;
+    color: #6d2945;
+    border: 1px solid #6d2945;
+}
+
+/* Hover effect for the homepage buttons */
+.hero_buttons a:hover {
+    transform: translateY(-3px);
 }
 
 /* Styling for background image in home section */
@@ -125,8 +333,8 @@ margin-left: 15px;
 
 /* Styling for home image in home section */
 #home_image{
-width: 500px;
-height: 500px;
+width: 350px;
+height: 350px;
 position: absolute;
 left: 10px;
 }
@@ -162,7 +370,7 @@ margin-top: 150px;
 margin-top: 40px;
 width: 900px;
 height:510px;
-background-color: rgb(29, 2, 2);
+background-color: #6d2945;
 color: white;
 padding: 10px;
 border-radius: 10px;
@@ -212,7 +420,7 @@ width: 55%;
 /* Hover effect for buttons */
 button:hover{
 transform: scale(1.1);
-box-shadow: 2px 2px rgb(29, 2, 2);
+box-shadow: 2px 2px #6d2945;
 }
 
 /* Styling for a skills section */
@@ -386,7 +594,7 @@ margin-top: 50px;
 box-shadow: 0 0 3px rgba(0,0,0,0.8);
 width: 100%;
 display: block;
-background-color: rgb(29, 2, 2);
+background-color: #6d2945;
 border-radius: 10px;
 }
 
@@ -397,7 +605,7 @@ width: 100%;
 display: block;
 opacity: 0.4;
 position: relative;
-background-color: rgb(29, 2, 2);
+background-color: #6d2945;
 border-radius: 10px;
 }
 
@@ -492,6 +700,8 @@ padding: 9px;
 transform: scale(1.1);
 box-shadow: 2px 2px black;
 }
+
+
 
 /* Media query for screen width between 1300px and 13500px */
 @media only screen and (1300px<=width<=1350px){
@@ -1094,5 +1304,499 @@ margin-top: 220px;
 .navbar{
     display: none;
 }
+}
+
+/* ==========================================
+   RESPONSIVE HOMEPAGE STYLES
+   ========================================== */
+
+
+/* ==========================================
+   UPDATED RESPONSIVE HOMEPAGE
+   ========================================== */
+
+/* Preventing the homepage grid items from overflowing */
+#home.home_hero {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    width: min(1250px, calc(100% - 40px));
+    gap: 40px;
+}
+
+/* Ensuring the introduction fits inside the grid */
+.hero_content {
+    min-width: 0;
+}
+
+/* Keeping the graduation photo responsive */
+.hero_visual {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+/* Styling the graduation photo */
+.hero_visual #home_image {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 4px solid white;
+    box-shadow: 0 10px 30px rgba(29, 2, 2, 0.18);
+}
+
+
+/* ==========================================
+   MEDIUM SCREENS - 800px to 1100px
+   ========================================== */
+
+@media only screen and (max-width: 1100px) {
+
+    /* Keeping the photo and text side by side */
+    #home.home_hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 25px;
+        min-height: auto;
+        margin: 30px auto 50px;
+    }
+
+    /* Making the photo slightly smaller */
+    .hero_visual {
+        max-width: 300px;
+    }
+
+    /* Adjusting the name size */
+    .hero_content .hero_title {
+        font-size: clamp(32px, 4vw, 46px);
+    }
+
+    /* Reducing the tagline size */
+    .hero_content .hero_tagline {
+        font-size: 20px;
+    }
+
+    /* Making the paragraph easier to fit */
+    .hero_content .hero_description {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* Allowing the buttons to wrap */
+    .hero_buttons {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ==========================================
+   TABLET AND MOBILE - BELOW 800px
+   ========================================== */
+
+@media only screen and (max-width: 800px) {
+
+    /* Switching the homepage to one column */
+    #home.home_hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        width: min(600px, calc(100% - 36px));
+        gap: 24px;
+        margin: 25px auto 50px;
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    /* Displaying the photo first */
+    .hero_visual {
+        order: 0;
+        width: 100%;
+        max-width: 270px;
+        margin: 0 auto;
+    }
+
+    /* Displaying the introduction after the photo */
+    .hero_content.text {
+        order: 1;
+        width: 100%;
+        margin-top: 0;
+        text-align: left;
+    }
+
+    /* Adjusting the heading size */
+    .hero_content .hero_title {
+        font-size: clamp(34px, 6vw, 46px);
+    }
+
+    /* Adjusting the tagline */
+    .hero_content .hero_tagline {
+        font-size: 21px;
+    }
+
+    /* Adjusting the introduction paragraph */
+    .hero_content .hero_description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+}
+
+
+/* ==========================================
+   SMALL MOBILE SCREENS - BELOW 480px
+   ========================================== */
+
+@media only screen and (max-width: 480px) {
+
+    /* Reducing the illustration/photo size */
+    .hero_visual {
+        max-width: 220px;
+    }
+
+    /* Reducing the name heading */
+    .hero_content .hero_title {
+        font-size: 34px;
+    }
+
+    /* Reducing the professional tagline */
+    .hero_content .hero_tagline {
+        font-size: 19px;
+    }
+
+    /* Allowing skill tags to wrap naturally */
+    .hero_tags {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    /* Stacking the homepage buttons */
+    .hero_buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Making the buttons fit the available width */
+    .hero_buttons a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* ==========================================
+   FIXING PAGE WIDTH ISSUES
+   ========================================== */
+
+/* Ensuring elements include padding in their width */
+* {
+    box-sizing: border-box;
+}
+
+/* Preventing the About section from exceeding the viewport */
+#aboutme {
+    width: min(1200px, calc(100% - 40px));
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+}
+
+/* Replacing the old fixed About container widths */
+#aboutme .container {
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    margin: 0;
+    min-width: 0;
+}
+
+/* Keeping the About illustration within its column */
+#aboutme img {
+    max-width: 350px;
+    height: auto;
+}
+
+/* Stacking the About section on narrow screens */
+@media only screen and (max-width: 800px) {
+
+    #aboutme {
+        display: block;
+    }
+
+    #aboutme img {
+        display: none;
+    }
+}
+
+
+/* Displaying mobile navigation on smaller screens */
+@media only screen and (max-width: 800px) {
+
+    /* Hiding the desktop navigation */
+    .navbar {
+        display: none;
+    }
+
+    /* Displaying the mobile menu icon */
+    .new_navbar {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Keeping the mobile menu hidden until opened */
+    .navbar_list {
+        display: none;
+    }
+}
+
+
+/* ==========================================
+   UPDATED ABOUT ME SECTION
+   ========================================== */
+
+/* Styling for the main About Me section */
+#aboutme.about_section {
+    display: block;
+
+    width: min(1150px, calc(100% - 40px));
+    height: auto;
+    min-height: 0;
+
+    margin: 70px auto;
+    padding: 55px 50px;
+
+    background: #faf7f2;
+    border-radius: 16px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   ABOUT ME INTRODUCTION
+   ========================================== */
+
+/* Styling for the introduction container */
+#aboutme .about_intro {
+    margin-bottom: 35px;
+    max-width: 850px;
+}
+
+/* Styling for the small section label */
+#aboutme .about_label {
+    margin: 0 0 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+    color: #873e59;
+}
+
+/* Styling for the main About Me heading */
+#aboutme .about_heading {
+    margin: 0 0 18px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: bold;
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+    color: #302429;
+}
+
+/* Highlighting part of the heading in burgundy */
+#aboutme .about_heading span {
+    color: #873e59;
+    font-style: italic;
+}
+
+/* Styling for the introductory description */
+#aboutme .about_description {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: #65545b;
+}
+
+
+/* ==========================================
+   ABOUT ME CARDS
+   ========================================== */
+
+/* Styling for the container holding the four cards */
+#aboutme .about_cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Styling for each individual About Me card */
+#aboutme .about_card {
+    padding: 28px;
+
+    background: #ffffff;
+    border: 1px solid #e9dde1;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(109, 41, 69, 0.04);
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+/* Hover effect for the About Me cards */
+#aboutme .about_card:hover {
+    transform: translateY(-5px);
+
+    border-color: #d9b5c3;
+
+    box-shadow: 0 10px 25px rgba(109, 41, 69, 0.12);
+}
+
+/* Styling for the container holding card numbers and icons */
+#aboutme .about_card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+/* Styling for the card numbers */
+#aboutme .about_number {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #b2929e;
+}
+
+/* Styling for the Bootstrap icons inside cards */
+#aboutme .about_card_header i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    background: #f3e8ec;
+    border-radius: 50%;
+
+    font-size: 20px;
+    color: #873e59;
+}
+
+/* Styling for individual card headings */
+#aboutme .about_card h3 {
+    margin: 0 0 12px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.3;
+
+    color: #33262c;
+}
+
+/* Styling for card descriptions */
+#aboutme .about_card p {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+
+    color: #65545b;
+}
+
+
+/* ==========================================
+   RESPONSIVE ABOUT ME SECTION
+   ========================================== */
+
+/* Adjusting the About Me section for tablets */
+@media only screen and (max-width: 800px) {
+
+    /* Reducing padding around the About Me content */
+    #aboutme.about_section {
+        width: calc(100% - 32px);
+        margin: 50px auto;
+        padding: 35px 25px;
+    }
+
+    /* Reducing spacing between cards */
+    #aboutme .about_cards {
+        gap: 15px;
+    }
+
+    /* Reducing individual card padding */
+    #aboutme .about_card {
+        padding: 20px;
+    }
+
+    /* Adjusting card heading sizes */
+    #aboutme .about_card h3 {
+        font-size: 20px;
+    }
+}
+
+
+/* Adjusting the About Me section for mobile */
+@media only screen and (max-width: 600px) {
+
+    /* Reducing section padding and margins */
+    #aboutme.about_section {
+        width: calc(100% - 24px);
+        margin: 40px auto;
+        padding: 30px 20px;
+    }
+
+    /* Reducing the main heading size */
+    #aboutme .about_heading {
+        font-size: clamp(30px, 8vw, 40px);
+    }
+
+    /* Reducing the introduction font size */
+    #aboutme .about_description {
+        font-size: 14px;
+    }
+
+    /* Stacking the four cards vertically */
+    #aboutme .about_cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Adjusting padding within each card */
+    #aboutme .about_card {
+        padding: 22px;
+    }
+
+    /* Reducing card description font size */
+    #aboutme .about_card p {
+        font-size: 14px;
+    }
+}
+
+
+/* Removing card movement for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    #aboutme .about_card {
+        transition: none;
+    }
+
+    #aboutme .about_card:hover {
+        transform: none;
+    }
 }
 
