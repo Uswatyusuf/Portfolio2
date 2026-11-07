@@ -1800,3 +1800,369 @@ margin-top: 220px;
     }
 }
 
+
+/* ==========================================
+   UPDATED PROJECTS SECTION
+   ========================================== */
+
+/* Styling for the main Projects section */
+#projects.work_section {
+    display: block;
+
+    width: min(1150px, calc(100% - 40px));
+    height: auto;
+    min-height: 0;
+
+    margin: 80px auto 100px;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   PROJECTS INTRODUCTION
+   ========================================== */
+
+/* Styling for the introduction container */
+#projects .work_intro {
+    max-width: 800px;
+    margin-bottom: 55px;
+}
+
+/* Styling for the small section label */
+#projects .work_label {
+    margin: 0 0 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    color: #873e59;
+}
+
+/* Styling for the main Projects heading */
+#projects .work_heading {
+    margin: 0 0 18px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -1px;
+
+    color: #302429;
+}
+
+/* Highlighting part of the heading */
+#projects .work_heading span {
+    color: #873e59;
+    font-style: italic;
+}
+
+/* Styling for the introduction paragraph */
+#projects .work_description {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: #65545b;
+}
+
+
+/* ==========================================
+   PROJECT CATEGORIES
+   ========================================== */
+
+/* Creating a directory-style category layout */
+#projects .work_group {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 35px;
+
+    padding: 35px 0;
+
+    border-top: 1px solid #e6d6da;
+}
+
+/* Styling for each category title */
+#projects .work_category h3 {
+    margin: 0 0 10px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    line-height: 1.3;
+
+    color: #873e59;
+}
+
+/* Styling for each category description */
+#projects .work_category p {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #8b7981;
+}
+
+
+/* ==========================================
+   INDIVIDUAL PROJECTS
+   ========================================== */
+
+/* Styling for the project list */
+#projects .work_list {
+    min-width: 0;
+}
+
+/* Styling for each project entry */
+#projects .work_item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 25px;
+
+    padding: 0 0 30px;
+    margin-bottom: 30px;
+
+    border-bottom: 1px solid #eee5e8;
+}
+
+/* Removing the border from the last project */
+#projects .work_item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Allowing project text to shrink properly */
+#projects .work_details {
+    min-width: 0;
+}
+
+/* Styling for project titles */
+#projects .work_details h4 {
+    margin: 0 0 12px;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.3;
+
+    color: #302429;
+}
+
+/* Styling for project descriptions */
+#projects .work_details p {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+
+    color: #65545b;
+}
+
+
+/* ==========================================
+   PROJECT TECHNOLOGY TAGS
+   ========================================== */
+
+/* Styling for the technology tags container */
+#projects .work_tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+/* Styling for each technology tag */
+#projects .work_tags span {
+    display: inline-block;
+
+    padding: 7px 10px;
+    border-radius: 6px;
+
+    background: #f4e9ee;
+    color: #7d3851;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+
+/* ==========================================
+   PROJECT LINKS
+   ========================================== */
+
+/* Styling for individual project links */
+#projects .work_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    color: #873e59;
+
+    transition: color 0.2s ease;
+}
+
+/* Hover effect for project links */
+#projects .work_link:hover {
+    color: #4f1c31;
+    text-decoration: underline;
+}
+
+/* Visible keyboard focus for links */
+#projects a:focus-visible {
+    outline: 2px solid #873e59;
+    outline-offset: 4px;
+}
+
+
+/* ==========================================
+   GITHUB FOOTER
+   ========================================== */
+
+/* Styling for the bottom Projects footer */
+#projects .work_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    margin-top: 30px;
+    padding: 28px 0;
+
+    border-top: 1px solid #e6d6da;
+}
+
+/* Styling for the footer description */
+#projects .work_footer p {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    color: #65545b;
+}
+
+/* Styling for the GitHub button */
+#projects .work_github {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 13px 18px;
+    border: 1px solid #873e59;
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    background: white;
+    color: #873e59;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+/* Hover effect for the GitHub button */
+#projects .work_github:hover {
+    background: #873e59;
+    color: white;
+}
+
+
+/* ==========================================
+   RESPONSIVE PROJECTS SECTION
+   ========================================== */
+
+/* Adjusting the directory for tablets */
+@media only screen and (max-width: 900px) {
+
+    /* Stacking the category heading above its projects */
+    #projects .work_group {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* Reducing the category description width */
+    #projects .work_category p {
+        max-width: 450px;
+    }
+}
+
+/* Adjusting the project entries on smaller screens */
+@media only screen and (max-width: 650px) {
+
+    /* Reducing the section margins */
+    #projects.work_section {
+        width: calc(100% - 32px);
+        margin: 55px auto 70px;
+    }
+
+    /* Reducing introduction spacing */
+    #projects .work_intro {
+        margin-bottom: 35px;
+    }
+
+    /* Reducing heading size */
+    #projects .work_heading {
+        font-size: clamp(30px, 8vw, 40px);
+    }
+
+    /* Reducing description font size */
+    #projects .work_description {
+        font-size: 14px;
+    }
+
+    /* Stacking project details and technology tags */
+    #projects .work_item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+    }
+
+    /* Adjusting project titles */
+    #projects .work_details h4 {
+        font-size: 21px;
+    }
+
+    /* Adjusting category titles */
+    #projects .work_category h3 {
+        font-size: 21px;
+    }
+
+    /* Aligning the footer content on mobile */
+    #projects .work_footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* Removing transitions for reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+    #projects .work_link,
+    #projects .work_github {
+        transition: none;
+    }
+}
+
