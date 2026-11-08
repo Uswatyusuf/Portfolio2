@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="A case study of LLM safety evaluation, knowledge-base grounding and automated testing using Python, Pydantic Evals and LLM-as-a-Judge.">
+
+    <title>Support Never Stops — AI Safety Evaluation | Uswat Yusuf</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        /* ==========================================
+           GENERAL PAGE STYLING
+           ========================================== */
+
+        :root {
+            --burgundy: #6d2945;
+            --burgundy-light: #873e59;
+            --ink: #302429;
+            --body-text: #65545b;
+            --background: #faf9f7;
+            --soft-pink: #f3e8ec;
+            --pale-pink: #faf5f7;
+            --border: #eadfe3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--ink);
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .case_container {
+            width: min(850px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
+
+        .case_nav {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back_link {
+            color: var(--burgundy);
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .back_link:hover {
+            text-decoration: underline;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--burgundy);
+            outline-offset: 4px;
+        }
+
+        /* ==========================================
+           PROJECT INTRODUCTION
+           ========================================== */
+
+        .case_intro {
+            padding: 60px 0 38px;
+        }
+
+        .case_label {
+            margin: 0 0 14px;
+            color: var(--burgundy-light);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .case_title {
+            margin: 0 0 18px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(35px, 5vw, 54px);
+            line-height: 1.2;
+        }
+
+        .case_summary {
+            margin: 0;
+            color: var(--body-text);
+            font-size: 17px;
+        }
+
+        .case_role {
+            margin: 18px 0 0;
+            color: #4e3b43;
+            font-size: 14px;
+        }
+
+        /* Technology tags */
+
+        .case_tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 23px;
+        }
+
+        .case_tags span {
+            padding: 6px 11px;
+            border-radius: 6px;
+            background: var(--soft-pink);
+            color: var(--burgundy);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ==========================================
+           KEY PROJECT HIGHLIGHTS
+           ========================================== */
+
+        .case_highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-bottom: 46px;
+            padding: 25px;
+            border-radius: 12px;
+            background: var(--soft-pink);
+        }
+
+        .highlight_value {
+            margin: 0 0 5px;
+            color: var(--burgundy);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 23px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .highlight_description {
+            margin: 0;
+            color: var(--body-text);
+            font-size: 12px;
+        }
+
+        /* ==========================================
+           CASE STUDY SECTIONS
+           ========================================== */
+
+        .case_section {
+            margin-bottom: 43px;
+        }
+
+        .case_section h2 {
+            margin: 0 0 15px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 27px;
+            line-height: 1.3;
+        }
+
+        .case_section h3 {
+            margin: 26px 0 12px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 20px;
+        }
+
+        .case_section p {
+            margin: 0 0 14px;
+            color: var(--body-text);
+            font-size: 15px;
+        }
+
+        .case_section ul {
+            margin: 0 0 15px;
+            padding-left: 23px;
+            color: var(--body-text);
+            font-size: 15px;
+        }
+
+        .case_section li {
+            margin-bottom: 10px;
+        }
+
+        .case_section strong {
+            color: #382a30;
+        }
+
+        /* ==========================================
+           EVALUATION WORKFLOW DIAGRAM
+           ========================================== */
+
+        .evaluation_flow {
+            margin: 24px 0;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: white;
+        }
+
+        .flow_step {
+            min-width: 0;
+            padding: 15px 18px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--pale-pink);
+            text-align: center;
+        }
+
+        .flow_step strong {
+            display: block;
+            color: var(--burgundy);
+            font-size: 14px;
+        }
+
+        .flow_step span {
+            display: block;
+            margin-top: 5px;
+            color: var(--body-text);
+            font-size: 12px;
+        }
+
+        .flow_arrow {
+            padding: 9px 0;
+            color: var(--burgundy-light);
+            text-align: center;
+        }
+
+        /* Parallel evaluation methods */
+
+        .flow_checks {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .flow_caption {
+            margin: 14px 0 0 !important;
+            font-size: 12px !important;
+            text-align: center;
+        }
+
+        /* ==========================================
+           EVALUATION CATEGORY TABLE
+           ========================================== */
+
+        .table_wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .evaluation_table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .evaluation_table th {
+            padding: 12px 14px;
+            background: var(--burgundy);
+            color: white;
+        }
+
+        .evaluation_table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--body-text);
+            vertical-align: top;
+        }
+
+        .evaluation_table tbody tr:nth-child(even) {
+            background: var(--pale-pink);
+        }
+
+        /* ==========================================
+           NOTES AND PROJECT LINKS
+           ========================================== */
+
+        .case_note {
+            margin: 20px 0;
+            padding: 16px 18px;
+            border-left: 4px solid var(--burgundy-light);
+            border-radius: 0 8px 8px 0;
+            background: var(--soft-pink);
+            color: #5d4750;
+            font-size: 14px;
+        }
+
+        .case_links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .case_button {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 17px;
+            border-radius: 7px;
+            background: var(--burgundy);
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .case_button:hover {
+            background: #4f1c31;
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+
+        .case_footer {
+            margin-top: 40px;
+            padding: 28px 0 45px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+
+        @media (max-width: 600px) {
+
+            .case_intro {
+                padding: 40px 0 30px;
+            }
+
+            .case_summary {
+                font-size: 15px;
+            }
+
+            .case_highlights {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .case_section h2 {
+                font-size: 24px;
+            }
+
+            .evaluation_flow {
+                padding: 14px;
+            }
+
+            .flow_checks {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ======================================
+         BACK NAVIGATION
+         ====================================== -->
+
+    <nav class="case_nav" aria-label="Project navigation">
+
+        <div class="case_container">
+
+            <a href="../../index.html#projects" class="back_link">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                Back to Projects
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="case_container">
+
+        <!-- ======================================
+             PROJECT INTRODUCTION
+             ====================================== -->
+
+        <header class="case_intro">
+
+            <p class="case_label">
+                Research &amp; Evaluation / 2025–2026 · AI Consultancy
+            </p>
+
+            <h1 class="case_title">
+                Conversational AI Safety Evaluation
+            </h1>
+
+            <p class="case_summary">
+                During my AI consultancy placement at Ortom,
+                I contributed to the evaluation of a
+                conversational AI platform developed for
+                Support Never Stops, a drug harm-reduction
+                and wellbeing service.
+
+                My work focused on assessing the assistant's
+                safety, response reliability, policy compliance
+                and consistency with its curated knowledge base
+                through structured Python tests, Pydantic Evals
+                and LLM-as-a-Judge techniques.
+            </p>
+
+            <p class="case_role">
+                <strong>My focus:</strong>
+                Evaluation design, automated testing,
+                multi-turn scenarios, knowledge-base grounding,
+                safety assessment and documentation.
+
+                Ortom designed and delivered the wider
+                platform as a team.
+            </p>
+
+            <!-- Technologies and methods -->
+
+            <div class="case_tags">
+                <span>Python</span>
+                <span>Pydantic Evals</span>
+                <span>LLM-as-a-Judge</span>
+                <span>AI Safety</span>
+                <span>Automated Testing</span>
+                <span>Knowledge Grounding</span>
+                <span>Responsible AI</span>
+            </div>
+
+        </header>
+
+
+        <!-- ======================================
+             KEY PROJECT HIGHLIGHTS
+             ====================================== -->
+
+        <div class="case_highlights">
+
+            <div>
+                <p class="highlight_value">Scenario-based</p>
+
+                <p class="highlight_description">
+                    Structured tests of expected
+                    and unexpected behaviour
+                </p>
+            </div>
+
+            <div>
+                <p class="highlight_value">Multi-turn</p>
+
+                <p class="highlight_description">
+                    Evaluation of behaviour
+                    across conversations
+                </p>
+            </div>
+
+            <div>
+                <p class="highlight_value">Two layers</p>
+
+                <p class="highlight_description">
+                    Programmatic assertions
+                    and LLM-based assessment
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             01 / THE CHALLENGE
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>01 / The Challenge</h2>
+
+            <p>
+                Support Never Stops serves people who use
+                drugs, those concerned about someone else's
+                drug use, and professionals working in the
+                field.
+
+                The platform aims to provide factual,
+                region-specific information and support
+                through a conversational interface.
+            </p>
+
+            <p>
+                In this sensitive context, general-purpose
+                AI systems present particular risks,
+                including hallucinated information,
+                fabricated references and inappropriate
+                responses to high-risk situations.
+            </p>
+
+            <p>
+                Another challenge was ensuring that the
+                assistant's answers remained grounded in
+                its curated knowledge base, which included
+                reference documents provided by the client.
+
+                Without appropriate grounding, an LLM could
+                generate a plausible answer that was not
+                supported by the available information.
+            </p>
+
+            <p>
+                <strong>My evaluation challenge</strong>
+                was to translate these reliability and
+                safety requirements into repeatable tests
+                that could assess the assistant's behaviour
+                across different conversation scenarios.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             02 / MY APPROACH
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>02 / My Approach</h2>
+
+            <p>
+                I contributed to a structured evaluation
+                framework designed to simulate realistic
+                conversations and compare the assistant's
+                responses against defined expected outcomes.
+
+                The evaluation combined deterministic
+                assertions with LLM-based assessment
+                where response quality required more
+                contextual judgement.
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>Scenario design:</strong>
+                    Developed structured test scenarios
+                    covering routine interactions, unusual
+                    inputs, multi-turn conversations
+                    and safety-related edge cases.
+                </li>
+
+                <li>
+                    <strong>Expected outcomes:</strong>
+                    Defined the behaviours that each scenario
+                    should demonstrate, including appropriate
+                    responses, safety boundaries and escalation
+                    where necessary.
+                </li>
+
+                <li>
+                    <strong>Automated execution:</strong>
+                    Used Pydantic Evals to execute structured
+                    test scenarios and capture evaluation
+                    results consistently.
+                </li>
+
+                <li>
+                    <strong>Programmatic assertions:</strong>
+                    Applied checks to verify expected response
+                    characteristics, required information
+                    and conversational workflow behaviour.
+                </li>
+
+                <li>
+                    <strong>Knowledge-base grounding:</strong>
+                    Evaluated whether factual responses were
+                    supported by the curated library of
+                    client-provided reference documents,
+                    checking for unsupported claims,
+                    invented information and hallucinations.
+                </li>
+
+                <li>
+                    <strong>LLM-as-a-Judge:</strong>
+                    Used an LLM-based evaluator to assess
+                    responses against defined criteria when
+                    simple exact-match checks were insufficient.
+                </li>
+
+                <li>
+                    <strong>Review and documentation:</strong>
+                    Reviewed evaluation outcomes and documented
+                    findings to support assessment and
+                    refinement of the conversational assistant.
+                </li>
+
+            </ul>
+
+
+            <!-- ======================================
+                 EVALUATION WORKFLOW
+                 ====================================== -->
+
+            <h3>Evaluation Workflow</h3>
+
+            <p>
+                The diagram below illustrates the high-level
+                evaluation process without revealing client
+                code, private test cases or internal documents.
+            </p>
+
+            <div
+                class="evaluation_flow"
+                role="group"
+                aria-label="Evaluation workflow showing test scenarios, the AI assistant, programmatic and LLM-based evaluation, and results review"
+            >
+
+                <!-- Scenario dataset -->
+
+                <div class="flow_step">
+                    <strong>Structured Scenario Suite</strong>
+
+                    <span>
+                        Test inputs, conversation history
+                        and expected outcomes
+                    </span>
+                </div>
+
+                <div class="flow_arrow" aria-hidden="true">
+                    <i class="bi bi-arrow-down"></i>
+                </div>
+
+                <!-- AI system being evaluated -->
+
+                <div class="flow_step">
+                    <strong>Conversational AI Under Test</strong>
+
+                    <span>
+                        Execute scenarios and
+                        capture assistant responses
+                    </span>
+                </div>
+
+                <div class="flow_arrow" aria-hidden="true">
+                    <i class="bi bi-arrow-down"></i>
+                </div>
+
+                <!-- Evaluation methods -->
+
+                <div class="flow_checks">
+
+                    <div class="flow_step">
+                        <strong>Programmatic Assertions</strong>
+
+                        <span>
+                            Expected behaviour and
+                            structured output checks
+                        </span>
+                    </div>
+
+                    <div class="flow_step">
+                        <strong>LLM-as-a-Judge</strong>
+
+                        <span>
+                            Contextual response assessment
+                            against evaluation criteria
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="flow_arrow" aria-hidden="true">
+                    <i class="bi bi-arrow-down"></i>
+                </div>
+
+                <!-- Results -->
+
+                <div class="flow_step">
+                    <strong>Results &amp; Review</strong>
+
+                    <span>
+                        Review outcomes, investigate
+                        failures and document findings
+                    </span>
+                </div>
+
+                <p class="flow_caption">
+                    Simplified illustration of the
+                    evaluation methodology.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             03 / WHAT I EVALUATED
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>03 / What I Evaluated</h2>
+
+            <p>
+                The evaluation covered different aspects
+                of conversational safety, reliability
+                and factual grounding.
+
+                The categories below are high-level
+                descriptions rather than reproductions
+                of confidential test cases.
+            </p>
+
+            <div class="table_wrapper">
+
+                <table class="evaluation_table">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Evaluation Area</th>
+                            <th scope="col">What It Checks</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Conversation Flow</td>
+                            <td>
+                                Whether interactions follow
+                                expected steps and respond
+                                appropriately to user input.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Multi-turn Consistency</td>
+                            <td>
+                                Whether the assistant maintains
+                                appropriate behaviour across
+                                a sequence of messages.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Safety-critical Responses</td>
+                            <td>
+                                Whether high-risk situations
+                                receive appropriate safety-oriented
+                                handling and escalation.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Policy Compliance</td>
+                            <td>
+                                Whether responses respect
+                                defined boundaries around
+                                unsupported or disallowed advice.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Knowledge-base Grounding</td>
+                            <td>
+                                Whether factual claims are
+                                supported by the curated
+                                reference documents rather
+                                than invented information
+                                or unsupported sources.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Privacy &amp; Confidentiality</td>
+                            <td>
+                                Whether the assistant avoids
+                                inappropriate disclosure
+                                of user information.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <h3>What the Evaluation Demonstrated</h3>
+
+            <p>
+                The framework provided a repeatable way
+                to test defined behaviours and examine
+                responses beyond surface-level fluency.
+
+                Some requirements could be checked
+                programmatically, while others required
+                a contextual assessment of the assistant's
+                response.
+            </p>
+
+            <p>
+                An important aspect of the evaluation was
+                assessing <strong>factual grounding</strong>.
+
+                A response could sound convincing but still
+                contain claims that were absent from or
+                inconsistent with the available knowledge base.
+
+                Checking alignment with the provided
+                reference material therefore formed part
+                of assessing response reliability.
+            </p>
+
+            <div class="case_note">
+                <strong>Interpreting evaluation results:</strong>
+
+                Passing a predefined evaluation suite provides
+                evidence that the assistant met the requirements
+                of the scenarios tested. It does not guarantee
+                factual correctness or safe behaviour across
+                every possible real-world conversation.
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             04 / MY CONTRIBUTION
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>04 / My Contribution</h2>
+
+            <p>
+                During my consultancy placement at Ortom,
+                I worked on translating behavioural and
+                safety requirements into structured,
+                testable evaluation scenarios.
+            </p>
+
+            <ul>
+
+                <li>
+                    Developed and maintained scenario-based
+                    evaluation datasets using Python.
+                </li>
+
+                <li>
+                    Implemented evaluations with Pydantic Evals,
+                    combining programmatic assertions with
+                    LLM-as-a-Judge assessment.
+                </li>
+
+                <li>
+                    Tested routine, edge-case, multi-turn
+                    and safety-critical conversations.
+                </li>
+
+                <li>
+                    Evaluated response consistency with the
+                    assistant's curated knowledge base,
+                    including information drawn from
+                    client-provided reference documents.
+                </li>
+
+                <li>
+                    Reviewed results, investigated unexpected
+                    behaviour and documented evaluation
+                    methods and findings.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ======================================
+             05 / REFLECTION AND LIMITATIONS
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>05 / Reflection &amp; Limitations</h2>
+
+            <p>
+                This work strengthened my understanding
+                of LLM evaluation engineering, automated
+                testing and responsible AI.
+
+                One of my main takeaways was that evaluating
+                conversational AI requires more than
+                checking whether a response is fluent
+                or relevant.
+
+                It is also necessary to assess whether
+                the response is safe, consistent with
+                defined requirements and grounded in
+                reliable source information.
+            </p>
+
+            <p>
+                The experience also highlighted the importance
+                of carefully designed evaluation criteria.
+
+                Deterministic checks provide consistency for
+                well-defined requirements, while LLM-based
+                evaluators can assess more nuanced responses
+                but may introduce their own uncertainty.
+            </p>
+
+            <p>
+                Scenario-based testing cannot cover every
+                possible conversation or guarantee that
+                responses will always remain grounded
+                in the knowledge base.
+
+                For a sensitive-use assistant, automated
+                evaluation should be supported by continuous
+                testing, additional scenario coverage,
+                human review and appropriate oversight.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             06 / EXPLORE THE PROJECT
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>06 / Explore the Project</h2>
+
+            <p>
+                Ortom has published a client case study
+                describing the Support Never Stops platform
+                and the challenge it was developed to address.
+
+                My portfolio case study focuses specifically
+                on the evaluation work I contributed to.
+            </p>
+
+            <div class="case_links">
+
+                <a
+                    href="https://www.ortom.ai/case-studies/support-never-stops/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case_button"
+                >
+                    <i class="bi bi-box-arrow-up-right"
+                       aria-hidden="true"></i>
+
+                    Read Ortom's Published Case Study
+                </a>
+
+            </div>
+
+            <div class="case_note">
+                <strong>Confidentiality:</strong>
+
+                The evaluation workflow is a generalised
+                illustration. This page does not include
+                private client documents, internal prompts,
+                original test cases, user conversations,
+                source code or confidential evaluation reports.
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         FOOTER
+         ====================================== -->
+
+    <footer class="case_footer">
+
+        <div class="case_container">
+
+            <a href="../../index.html#projects"
+               class="back_link">
+
+                <i class="bi bi-arrow-left"
+                   aria-hidden="true"></i>
+
+                Back to All Projects
+
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
