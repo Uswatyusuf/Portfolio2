@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heart Disease Prediction | Uswat Yusuf</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        /* ==========================================
+           GENERAL PAGE STYLING
+           ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf9f7;
+            color: #302429;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .case_container {
+            width: min(850px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           TOP NAVIGATION
+           ========================================== */
+
+        .case_nav {
+            padding: 25px 0;
+            border-bottom: 1px solid #eadfe3;
+        }
+
+        .back_link {
+            color: #6d2945;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .back_link:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================
+           PROJECT INTRODUCTION
+           ========================================== */
+
+        .case_intro {
+            padding: 65px 0 45px;
+        }
+
+        .case_label {
+            color: #873e59;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .case_title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(36px, 5vw, 55px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .case_summary {
+            color: #65545b;
+            font-size: 17px;
+            max-width: 750px;
+        }
+
+        /* Technology tags */
+        .case_tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .case_tags span {
+            background: #f3e7ec;
+            color: #6d2945;
+            padding: 7px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ==========================================
+           KEY PROJECT HIGHLIGHTS
+           ========================================== */
+
+        .case_highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            padding: 28px;
+            margin-bottom: 50px;
+            background: #f3e8ec;
+            border-radius: 12px;
+        }
+
+        .highlight_value {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 29px;
+            font-weight: bold;
+            color: #6d2945;
+        }
+
+        .highlight_description {
+            color: #65545b;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* ==========================================
+           CASE STUDY CONTENT
+           ========================================== */
+
+        .case_section {
+            margin-bottom: 40px;
+        }
+
+        .case_section h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 27px;
+            color: #302429;
+            margin-bottom: 15px;
+        }
+
+        .case_section p {
+            font-size: 15px;
+            color: #65545b;
+            margin-bottom: 14px;
+        }
+
+        .case_section ul {
+            padding-left: 23px;
+            color: #65545b;
+            font-size: 15px;
+        }
+
+        .case_section li {
+            margin-bottom: 10px;
+        }
+
+        .case_subheading {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 20px;
+            color: #302429;
+            margin: 28px 0 12px;
+        }
+
+        /* ==========================================
+           PROJECT IMAGES
+           ========================================== */
+
+        .case_figure {
+            margin: 24px 0 28px;
+            padding: 18px;
+            border: 1px solid #eadfe3;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .case_figure img {
+            display: block;
+            width: 100%;
+            max-height: 480px;
+            object-fit: contain;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .case_figure figcaption {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #65545b;
+            margin-top: 12px;
+        }
+
+        .case_figure figcaption strong {
+            color: #302429;
+        }
+
+        /* ==========================================
+           MODEL COMPARISON TABLE
+           ========================================== */
+
+        .table_wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .results_table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .results_table th {
+            background: #6d2945;
+            color: white;
+            padding: 13px;
+        }
+
+        .results_table td {
+            padding: 13px;
+            border-bottom: 1px solid #eadfe3;
+        }
+
+        .results_table tr:nth-child(even) {
+            background: #f8f1f4;
+        }
+
+        .evidence_note {
+            margin: 20px 0;
+            padding: 14px 17px;
+            background: #faf5f7;
+            border: 1px solid #eadfe3;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #65545b;
+        }
+
+        /* ==========================================
+           PROJECT LINKS AND FOOTER
+           ========================================== */
+
+        .case_links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .case_button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: #6d2945;
+            color: white;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .case_button:hover {
+            background: #4f1c31;
+        }
+
+        .case_footer {
+            padding: 28px 0 45px;
+            margin-top: 45px;
+            border-top: 1px solid #eadfe3;
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+
+        @media (max-width: 600px) {
+
+            .case_intro {
+                padding: 40px 0 30px;
+            }
+
+            .case_summary {
+                font-size: 15px;
+            }
+
+            .case_highlights {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .case_section h2 {
+                font-size: 24px;
+            }
+
+            .case_figure {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======================================
+         BACK NAVIGATION
+         ====================================== -->
+
+    <nav class="case_nav">
+        <div class="case_container">
+            <a href="../../index.html#projects" class="back_link">
+                <i class="bi bi-arrow-left"></i>
+                Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <main class="case_container">
+
+        <!-- ======================================
+             PROJECT OVERVIEW
+             ====================================== -->
+
+        <header class="case_intro">
+
+            <p class="case_label">
+                Data Science &amp; Analytics / 2025
+            </p>
+
+            <h1 class="case_title">
+                Heart Disease Prediction
+            </h1>
+
+            
+            <p class="case_summary">
+                An end-to-end machine learning project investigating
+                heart disease prediction using clinical and demographic
+                data. I explored data preprocessing, feature selection
+                and classification techniques, comparing multiple models
+                to understand their predictive performance and limitations.
+            </p>
+
+
+            <!-- Technologies used -->
+            <div class="case_tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>scikit-learn</span>
+                <span>Matplotlib</span>
+                <span>TensorFlow</span>
+            </div>
+
+        </header>
+
+
+        <!-- ======================================
+             KEY PROJECT HIGHLIGHTS
+             ====================================== -->
+
+        <div class="case_highlights">
+
+            <div>
+                <div class="highlight_value">303</div>
+                <p class="highlight_description">
+                    Original dataset records
+                </p>
+            </div>
+
+            <div>
+                <div class="highlight_value">4</div>
+                <p class="highlight_description">
+                    Classification approaches explored
+                </p>
+            </div>
+
+            <div>
+                <div class="highlight_value">84%</div>
+                <p class="highlight_description">
+                    Highest reported accuracy among
+                    the three traditional classifiers
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             01 / THE PROBLEM
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>01 / The Problem</h2>
+
+            <p>
+                Heart disease is an important healthcare challenge,
+                and machine learning offers opportunities to
+                investigate patterns within clinical data.
+            </p>
+
+            <p>
+                For this project, I wanted to explore whether
+                patient characteristics and clinical measurements
+                could be used to predict the presence of heart
+                disease, and compare how different classification
+                algorithms performed on the same dataset.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             02 / MY APPROACH
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>02 / My Approach</h2>
+
+            <p>
+                I used the Cleveland Heart Disease dataset from
+                the UCI Machine Learning Repository, which
+                contains 303 records and 14 attributes,
+                including the target variable.
+            </p>
+
+            
+            <ul>
+                <li>
+                    <strong>Data exploration:</strong>
+                    Performed exploratory data analysis (EDA) using
+                    descriptive statistics and visualisations to examine
+                    feature distributions, class imbalance, outliers
+                    and relationships between clinical variables.
+                </li>
+
+                <li>
+                    <strong>Data preprocessing:</strong>
+                    Investigated missing values and handled them using
+                    mode imputation. Applied outlier treatment,
+                    log transformations and feature standardisation
+                    to prepare the dataset for modelling.
+                </li>
+
+                <li>
+                    <strong>Target encoding:</strong>
+                    Converted the original disease severity labels
+                    into a binary classification target representing
+                    the presence or absence of heart disease.
+                </li>
+
+                <li>
+                    <strong>Feature selection:</strong>
+                    Used Random Forest feature importance to rank
+                    predictors and identify features for the
+                    classification models.
+                </li>
+
+                <li>
+                    <strong>Model development:</strong>
+                    Trained and compared Logistic Regression,
+                    Support Vector Classifier and Random Forest.
+                    I also explored a Neural Network as an
+                    alternative modelling approach.
+                </li>
+
+                <li>
+                    <strong>Model evaluation:</strong>
+                    Evaluated classification performance using
+                    accuracy, precision and recall, with additional
+                    cross-validation experiments for the Neural Network.
+                </li>
+            </ul>
+
+
+
+            <!-- SELECTED EXPLORATORY VISUALS -->
+
+            <h3 class="case_subheading">
+                Selected Exploratory Findings
+            </h3>
+
+            <p>
+                I examined the distribution of the target variable
+                and visualised relationships between the dataset
+                features before building the models.
+            </p>
+
+            <!-- Image 1: Class distribution -->
+            <figure class="case_figure">
+
+                <img
+                    src="/images/heart-disease/class-distribution.png"
+                    alt="Bar chart showing the number of records with and without heart disease"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    <strong>Class Distribution — Figure 31.</strong>
+                    The five original severity levels were grouped
+                    into two classes: absence and presence of heart
+                    disease. The chart shows the class balance
+                    in the analysed dataset.
+                </figcaption>
+
+            </figure>
+
+
+            <!-- Image 2: Correlation heatmap -->
+            <figure class="case_figure">
+
+                <img
+                    src="/images/heart-disease/correlation-heatmap.png"
+                    alt="Correlation heatmap showing relationships among clinical features"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    <strong>Correlation Heatmap — Figure 26.</strong>
+                    I used this to examine associations between
+                    patient measurements and their relationships
+                    with the target variable. Correlation does
+                    not establish causation.
+                </figcaption>
+
+            </figure>
+
+        </section>
+
+
+        <!-- ======================================
+             03 / RESULTS AND FINDINGS
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>03 / Results &amp; Findings</h2>
+
+            <p>
+               I compared
+                Logistic Regression, Support Vector Classifier
+                and Random Forest using accuracy, precision
+                and recall.
+            </p>
+
+            <p>
+                The results reported in my  project
+                are presented below.
+            </p>
+
+            <!-- Model comparison table -->
+            <div class="table_wrapper">
+
+                <table class="results_table">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Model</th>
+                            <th scope="col">Accuracy</th>
+                            <th scope="col">Precision</th>
+                            <th scope="col">Recall</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Logistic Regression</td>
+                            <td>83%</td>
+                            <td>0.90</td>
+                            <td>0.70</td>
+                        </tr>
+
+                        <tr>
+                            <td>Support Vector Classifier</td>
+                            <td>83%</td>
+                            <td>0.90</td>
+                            <td>0.70</td>
+                        </tr>
+
+                        <tr>
+                            <td>Random Forest</td>
+                            <td>84%</td>
+                            <td>0.88</td>
+                            <td>0.75</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            
+        <p>
+            Random Forest achieved the highest reported accuracy
+            (84%) and recall (0.75) among the three traditional
+            classifiers. Logistic Regression and SVC both
+            achieved 83% accuracy, with slightly higher precision
+            (0.90 compared with 0.88 for Random Forest).
+        </p>
+
+        <p>
+            This highlighted a trade-off between precision and
+            recall. Although Random Forest identified a greater
+            proportion of positive cases, its recall of 0.75
+            means approximately 25% of actual positive cases
+            were not identified.
+        </p>
+
+        <p>
+            In a healthcare-related classification task,
+            false negatives are particularly important.
+            These results reinforced the need to evaluate
+            models using more than accuracy alone.
+        </p>
+
+
+            <p>
+                I also experimented with a Neural Network
+                and cross-validation, which were discussed
+                separately in my original report.
+            </p>
+
+
+            <!-- FEATURE IMPORTANCE -->
+
+            <h3 class="case_subheading">
+                Feature Importance
+            </h3>
+
+            <p>
+                I used Random Forest feature importance to rank
+                the input variables and explore which measurements
+                appeared most influential within the model.
+            </p>
+
+            <!-- Image 3: Feature importance -->
+            <figure class="case_figure">
+
+                <img
+                    src="/images/heart-disease/feature-importance.png"
+                    alt="Horizontal bar chart of Random Forest feature importance scores"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    <strong>Feature Importance — Figure 32.</strong>
+                    This chart shows the feature rankings from
+                    the original Random Forest analysis.
+                    Feature importance reflects model behaviour
+                    rather than proving clinical risk factors.
+                </figcaption>
+
+            </figure>
+
+            <div class="evidence_note">
+                <strong>About these results:</strong>
+                The performance figures and charts are from my
+                university project.
+                They represent exploratory analysis rather
+                than a clinically validated diagnostic system.
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             04 / REFLECTION AND LIMITATIONS
+             ====================================== -->
+
+        <section class="case_section">
+
+            
+<h2>04 / Reflection &amp; Limitations</h2>
+
+<p>
+    This project strengthened my understanding of
+    exploratory data analysis, feature engineering,
+    supervised classification and model evaluation.
+    Comparing different algorithms helped me appreciate
+    the importance of selecting evaluation metrics
+    based on the problem being addressed.
+</p>
+
+<p>
+    One important limitation is the small dataset size,
+    which may affect how reliably the model generalises
+    to unseen patient populations. The dataset also
+    contains demographic imbalances that could influence
+    model performance across different groups.
+</p>
+
+<p>
+    The original experimental workflow also had
+    methodological limitations, including preprocessing
+    steps performed before data splitting. This can
+    introduce data leakage and potentially lead to
+    optimistic performance estimates.
+</p>
+
+<p>
+    Although the project produced promising exploratory
+    results, external validation and more representative
+    data would be necessary before considering any
+    real-world clinical application.
+</p>
+
+
+        </section>
+
+
+        <!-- ======================================
+             05 / EXPLORE THE PROJECT
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>05 / Explore the Project</h2>
+
+            <p>
+                This case study summarises my January 2025
+                university project, including selected visuals
+                and the original model comparison results.
+            </p>
+
+            <p>
+                The Cleveland Heart Disease dataset is publicly
+                available through the UCI Machine Learning Repository.
+            </p>
+
+            <div class="case_links">
+
+                <a
+                    href="https://archive.ics.uci.edu/dataset/45/heart+disease"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case_button"
+                >
+                    View Dataset
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <!-- Future improvement:
+                      GitHub repository link  -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         FOOTER
+         ====================================== -->
+
+    <footer class="case_footer">
+
+        <div class="case_container">
+
+            <a href="../../index.html#projects"
+               class="back_link">
+
+                <i class="bi bi-arrow-left"></i>
+                Back to All Projects
+
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

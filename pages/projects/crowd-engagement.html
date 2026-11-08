@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Crowd Engagement Analysis: a computer vision project using CSRNet, YOLOv8 and Streamlit.">
+
+    <title>Crowd Engagement Analysis | Uswat Yusuf</title>
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        /* ==========================================
+           GENERAL PAGE STYLING
+           ========================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #faf9f7;
+            color: #302429;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .case_container {
+            width: min(850px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           TOP NAVIGATION
+           ========================================== */
+
+        .case_nav {
+            padding: 24px 0;
+            border-bottom: 1px solid #eadfe3;
+        }
+
+        .back_link {
+            color: #6d2945;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .back_link:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================
+           PROJECT INTRODUCTION
+           ========================================== */
+
+        .case_intro {
+            padding: 60px 0 38px;
+        }
+
+        .case_label {
+            margin: 0 0 14px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #873e59;
+            text-transform: uppercase;
+        }
+
+        .case_title {
+            margin: 0 0 18px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(35px, 5vw, 54px);
+            line-height: 1.2;
+        }
+
+        .case_summary {
+            margin: 0;
+            color: #65545b;
+            font-size: 17px;
+        }
+
+        .case_role {
+            margin: 17px 0 0;
+            font-size: 14px;
+            color: #4e3b43;
+        }
+
+        /* Technology tags */
+
+        .case_tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 23px;
+        }
+
+        .case_tags span {
+            padding: 6px 11px;
+            border-radius: 6px;
+            background: #f3e7ec;
+            color: #6d2945;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ==========================================
+           KEY PROJECT HIGHLIGHTS
+           ========================================== */
+
+        .case_highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            padding: 25px;
+            margin: 0 0 46px;
+            background: #f3e8ec;
+            border-radius: 12px;
+        }
+
+        .highlight_value {
+            margin: 0 0 5px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #6d2945;
+        }
+
+        .highlight_description {
+            margin: 0;
+            color: #65545b;
+            font-size: 12px;
+        }
+
+        /* ==========================================
+           CASE STUDY SECTIONS
+           ========================================== */
+
+        .case_section {
+            margin-bottom: 43px;
+        }
+
+        .case_section h2 {
+            margin: 0 0 15px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 27px;
+        }
+
+        .case_section h3 {
+            margin: 26px 0 12px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 20px;
+        }
+
+        .case_section p {
+            margin: 0 0 14px;
+            font-size: 15px;
+            color: #65545b;
+        }
+
+        .case_section ul {
+            margin: 0 0 15px;
+            padding-left: 23px;
+            font-size: 15px;
+            color: #65545b;
+        }
+
+        .case_section li {
+            margin-bottom: 10px;
+        }
+
+        .case_section strong {
+            color: #382a30;
+        }
+
+        /* ==========================================
+           PROJECT IMAGES
+           ========================================== */
+
+        .case_figure {
+            margin: 22px 0 27px;
+            padding: 17px;
+            border: 1px solid #eadfe3;
+            border-radius: 12px;
+            background: white;
+        }
+
+        .case_figure img {
+            display: block;
+            width: 100%;
+            max-height: 460px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .case_figure figcaption {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #65545b;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           FINDINGS AND LIMITATIONS NOTE
+           ========================================== */
+
+        .case_note {
+            margin: 20px 0;
+            padding: 16px 18px;
+            border-left: 4px solid #873e59;
+            border-radius: 0 8px 8px 0;
+            background: #f3e8ec;
+            font-size: 14px;
+            color: #5d4750;
+        }
+
+        /* ==========================================
+           PROJECT LINKS
+           ========================================== */
+
+        .case_links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .case_button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 17px;
+            border-radius: 7px;
+            background: #6d2945;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .case_button:hover {
+            background: #4f1c31;
+        }
+
+        a:focus-visible {
+            outline: 2px solid #6d2945;
+            outline-offset: 4px;
+        }
+
+        .case_footer {
+            margin-top: 40px;
+            padding: 28px 0 45px;
+            border-top: 1px solid #eadfe3;
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+
+        @media (max-width: 600px) {
+
+            .case_intro {
+                padding: 40px 0 30px;
+            }
+
+            .case_summary {
+                font-size: 15px;
+            }
+
+            .case_highlights {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .case_section h2 {
+                font-size: 24px;
+            }
+
+            .case_figure {
+                padding: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======================================
+         BACK NAVIGATION
+         ====================================== -->
+
+    <nav class="case_nav">
+        <div class="case_container">
+            <a href="../../index.html#projects" class="back_link">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <main class="case_container">
+
+        <!-- ======================================
+             PROJECT INTRODUCTION
+             ====================================== -->
+
+        <header class="case_intro">
+
+            <p class="case_label">
+                AI Applications / 2025 · University Group Project
+            </p>
+
+            <h1 class="case_title">
+                Crowd Engagement Analysis
+            </h1>
+
+            <p class="case_summary">
+                Developing a computer vision approach to crowd-count
+                estimation for Bradford 2025 City of Culture events.
+                Our team explored deep learning methods for dense and
+                sparse crowds and built a Streamlit prototype to make
+                the predictions accessible to non-technical users.
+            </p>
+
+            <p class="case_role">
+                <strong>My focus:</strong>
+                CSRNet development, image annotation,
+                testing and project management.
+            </p>
+
+            <!-- Technologies -->
+            <div class="case_tags">
+                <span>Python</span>
+                <span>PyTorch</span>
+                <span>CSRNet</span>
+                <span>YOLOv8</span>
+                <span>Streamlit</span>
+                <span>Label Studio</span>
+                <span>Computer Vision</span>
+            </div>
+
+        </header>
+
+
+        <!-- ======================================
+             PROJECT HIGHLIGHTS
+             ====================================== -->
+
+        <div class="case_highlights">
+
+            <div>
+                <p class="highlight_value">2 approaches</p>
+                <p class="highlight_description">
+                    Density-map estimation and person detection
+                </p>
+            </div>
+
+            <div>
+                <p class="highlight_value">MAE + RMSE</p>
+                <p class="highlight_description">
+                    Crowd-count error metrics explored
+                </p>
+            </div>
+
+            <div>
+                <p class="highlight_value">Streamlit</p>
+                <p class="highlight_description">
+                    Interactive image-analysis prototype
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             01 / THE PROBLEM
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>01 / The Problem</h2>
+
+            <p>
+                Counting people at public events is difficult
+                when crowds are dense, individuals overlap,
+                and camera views vary. Manual counting is
+                time-consuming, while conventional object
+                detection can miss people in heavily
+                occluded scenes.
+            </p>
+
+            <p>
+                The project investigated whether automated
+                crowd counting could help organisers assess
+                attendance across different event settings.
+                <strong>
+                    Crowd size is an indicator of attendance,
+                    not a direct measure of audience engagement
+                    or satisfaction.
+                </strong>
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             02 / MY APPROACH
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>02 / My Approach</h2>
+
+            <p>
+                We began with event imagery supplied for
+                the project, but the initial images were
+                limited in quantity and variety.
+                We therefore explored established
+                crowd-counting datasets, including
+                ShanghaiTech, JHU-Crowd and UCF-QNRF,
+                to support experimentation across different
+                crowd densities and environments.
+            </p>
+
+            <ul>
+
+                
+            <li>
+                <strong>Annotation and data preparation:</strong>
+                Used Label Studio to create point-based head annotations
+                for crowd images. These annotations supported the
+                generation of Gaussian density maps used to train
+                the CSRNet crowd-counting model. Point annotations
+                were particularly useful for densely populated
+                scenes where individuals overlap.
+            </li>
+
+
+                <li>
+                    <strong>CSRNet development (my contribution):</strong>
+                    Worked on a density-regression model with
+                    a pretrained VGG-16 feature extractor and
+                    dilated convolutions. The predicted density
+                    map is summed to estimate the number of
+                    people in an image.
+                </li>
+                <h3>CSRNet Density Map Prediction</h3>
+
+            <p>
+                CSRNet estimates crowd size by generating a density map
+                rather than detecting each person individually with
+                bounding boxes. Brighter regions represent higher
+                predicted crowd density, and the overall crowd count is
+                obtained by summing the density values across the image.
+            </p>
+
+            <figure class="case_figure">
+
+                <img
+                    src="/images/crowd-engagement/csrnet-density-map.png"
+                    alt="Predicted crowd density map generated by the CSRNet model"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    <strong>Figure 1 — CSRNet Density Map Prediction.</strong>
+                    Example of a density map generated by the CSRNet model.
+                    Brighter areas indicate higher predicted crowd density,
+                    while darker areas indicate lower density.
+                </figcaption>
+
+            </figure>
+
+                <li>
+                    <strong>Alternative approach (team):</strong>
+                    Explored YOLOv8 object detection, which
+                    counts people using bounding boxes and
+                    is more appropriate when individuals are
+                    clearly visible.
+                </li>
+
+                <li>
+                    <strong>Model evaluation:</strong>
+                    Tracked training loss and validation mean
+                    absolute error (MAE) and root mean squared
+                    error (RMSE), alongside visual checks of
+                    model predictions.
+                </li>
+
+                <li>
+                    <strong>Prototype integration:</strong>
+                    Combined the models in a Streamlit interface
+                    with image upload, estimated counts,
+                    density maps or detection boxes,
+                    and downloadable outputs.
+                </li>
+
+            </ul>
+
+        
+
+        </section>
+
+
+        <!-- ======================================
+             03 / EVALUATION AND FINDINGS
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>03 / Evaluation &amp; Findings</h2>
+
+            <p>
+                We used <strong>MAE</strong> to measure average
+                absolute crowd-count error and
+                <strong>RMSE</strong> to give greater weight
+                to larger mistakes. These metrics helped us
+                assess whether a model produced reliable
+                count estimates, rather than judging
+                predictions only by how convincing the
+                visual output looked.
+            </p>
+
+            <!-- SELECTED VISUAL 2: CSRNET EVALUATION -->
+
+            <figure class="case_figure">
+
+                <img
+                    src="/images/crowd-engagement/csrnet-training-curves.png"
+                    alt="Plots of CSRNet training loss, validation MAE and validation RMSE across epochs"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    <strong>
+                        Figure 2 — CSRNet Training and Validation.
+                    </strong>
+                    Training loss decreased, while validation
+                    MAE and RMSE improved substantially before
+                    fluctuating. The higher RMSE indicates that
+                    some large counting errors may have remained.
+                </figcaption>
+
+            </figure>
+
+            <p>
+                In our qualitative evaluation,
+                <strong>
+                    CSRNet was more suitable for highly congested
+                    scenes,
+                </strong>
+                where density maps could represent overlapping
+                people.
+                <strong>
+                    YOLOv8 was more effective in less crowded scenes,
+                </strong>
+                where individuals could be identified with
+                bounding boxes.
+            </p>
+
+            <p>
+                The trade-off was important: CSRNet sometimes
+                overestimated sparse crowds, while YOLOv8 could
+                undercount when many people overlapped.
+                This reinforced the need to select a model based
+                on the operating environment rather than assuming
+                one approach would work everywhere.
+            </p>
+
+            <div class="case_note">
+                <strong>Evaluation boundary:</strong>
+                These findings describe the original project
+                experiments. They do not constitute a controlled,
+                like-for-like benchmark proving one model is
+                universally better.
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             04 / PROTOTYPE AND MY CONTRIBUTION
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>04 / Prototype &amp; My Contribution</h2>
+
+            <p>
+                The team developed <strong>PopulusAI</strong>,
+                a Streamlit prototype with separate workflows
+                for dense outdoor scenes and less crowded
+                indoor spaces.
+            </p>
+
+            <p>
+                Users could upload an image, view an estimated
+                crowd count alongside the model output, and
+                download the visualisation. Model caching was
+                used to avoid reloading weights on every request.
+            </p>
+
+            <!-- SELECTED VISUAL 3: APPLICATION PROTOTYPE -->
+
+            <figure class="case_figure">
+
+                <img
+                    src="/images/crowd-engagement/streamlit-prototype.png"
+                    alt="PopulusAI Streamlit interface with crowd analysis tabs and image upload controls"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    <strong>Figure 3 — Streamlit Prototype.</strong>
+                    The interface exposed the computer vision
+                    models through a simple upload-and-analyse
+                    workflow for non-technical users.
+                </figcaption>
+
+            </figure>
+
+            <h3>My Individual Contributions</h3>
+
+            <ul>
+
+                <li>
+                    Developed the CSRNet crowd-density experiment
+                    and contributed to image annotation.
+                </li>
+
+                <li>
+                    Prepared CSRNet test plans and implemented
+                    unit and integration tests.
+                </li>
+
+                <li>
+                    Produced technical documentation,
+                    diagrams and evaluation material.
+                </li>
+
+                <li>
+                    Served as Project Manager: coordinated
+                    tasks, deadlines and progress using Jira,
+                    GitHub branches and pull requests.
+                </li>
+
+            </ul>
+
+            <p>
+                The wider team worked on additional model
+                experiments and the integrated application.
+                Separating these contributions reflects
+                the collaborative nature of the project.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             05 / REFLECTION AND LIMITATIONS
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>05 / Reflection &amp; Limitations</h2>
+
+            <p>
+                This project strengthened my skills in
+                <strong>
+                    computer vision, CNN-based density
+                    estimation, model evaluation and Python
+                    application development.
+                </strong>
+                It also gave me experience taking an AI idea
+                beyond a notebook and considering usability,
+                testing and deployment.
+            </p>
+
+            <p>
+                The original prototype still had practical
+                limitations: large image uploads could cause
+                crashes, initial model loading was slow,
+                and predictions could take around seven seconds
+                depending on image size. Performance also
+                varied with density and occlusion.
+            </p>
+
+            <p>
+                Given more time, I would test performance
+                across clearly defined crowd-density ranges,
+                report MAE and RMSE on a consistent held-out
+                dataset, improve handling of large uploads
+                and monitor inference latency.
+                Any use of event images would also require
+                appropriate privacy and data-permission safeguards.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             06 / EXPLORE THE PROJECT
+             ====================================== -->
+
+        <section class="case_section">
+
+            <h2>06 / Explore the Project</h2>
+
+            <p>
+                This case study summarises the implementation
+                and findings of our 2025 university group project.
+                The repository is provided for readers who want
+                to explore the code and project structure.
+            </p>
+
+            <div class="case_links">
+
+                <a
+                    href="https://github.com/Uswatyusuff/Project2_C24"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case_button"
+                >
+                    <i class="bi bi-github" aria-hidden="true"></i>
+                    View GitHub Repository
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         FOOTER
+         ====================================== -->
+
+    <footer class="case_footer">
+
+        <div class="case_container">
+
+            <a href="../../index.html#projects"
+               class="back_link">
+
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                Back to All Projects
+
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
