@@ -423,91 +423,6 @@ transform: scale(1.1);
 box-shadow: 2px 2px #6d2945;
 }
 
-/* Styling for a skills section */
-.skills_section{
-height: 50vh;
-}
-
-/* Styling for images inside the skills section */
-.skills_section img{
-width: 100px;
-height: 100px;
-}
-
-/* Styling for a skills container */
-.skills{
-display: flex;
-gap: 30px;
-margin-left: 10px;
-margin-top: 30px;
-}
-
-/* Styling for a paragraph inside a skills section */
-.skill p{
-font-size: 20px;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-text-align: center; 
-}
-
-/* Styling for a video container */
-.slide_container{
-display: flex;
-margin: 5px 15px;
-} 
-
-
-/* Styling for video slide */
-.slide_video{
-width: 50%;
-height: 100vh;
-}
-
-/* setting width and height for the thumbnail images and videos */
-.row img, .row_video img{
-    width: 100px;
-    height: 100px;
-}
-
-
-/* Styling for individual slides */
-#slide1, #slide2, #slide3{
-width: 45%;
-height: 60vh;
-position: absolute; 
-top: 1765px;
-}
-
-/* Initial opacity for the first slide */
-#slide1{
-opacity: 1;
-}
-
-/* Initial opacity for the second slide */
-#slide2{
-opacity: 0;
-}
-
-
-/* Initial opacity for the third slide */
-#slide3{
-opacity: 0;
-}
-
-/* Styling for container of the image gallery */
-.slide_images{
-width: 600px; 
-height: 600px;
-margin-top: 24px;
-margin-left: 15px;
-}
-
-#slideimage1, #slideimage2, #slideimage3, #slideimage4, #slideimage5, #slideimage6{
-    width: 100%;
-    height: 60vh;
-}
-.mySlides {
-display: none;
-}
 
 /*specifying a pointer for the cursor when on the thumbnail images */
 .cursor {
@@ -620,46 +535,6 @@ transform: scale(1.0);
 box-shadow: -2px 0px 30px black;
 }
 
-/* Styling for a "coming soon" label */
-.coming_soon{
-position: absolute;
-font-size: 25px;
-font-weight: bold;
-left: 1050px;
-top: 2658px;
-text-transform: uppercase;
-}
-
-/* Styling for  "coming soon" label for Data Analysis Project */
-.coming_soon_da{
-position: absolute;
-font-size: 25px;
-font-weight: bold;
-left: 600px;
-top: 3180px;
-text-transform: uppercase;
-text-align: center;
-}
-
-/* Styling for  "coming soon" label for Artificial Intelligence Projects */
-
-.coming_soon_at_1{
-position: absolute;
-font-size: 25px;
-font-weight: bold;
-left: 120px;
-top: 3705px;
-text-transform: uppercase;
-}
-
-.coming_soon_at_2{
-right: 550px;
-top: 3705px;
-position: absolute;
-font-size: 25px;
-font-weight: bold;
-text-transform: uppercase;
-}
 
 /* Styling for content in each card*/
 .content{
@@ -2166,3 +2041,150 @@ margin-top: 220px;
     }
 }
 
+
+/* ==========================================
+   SKILLS SECTION
+   ========================================== */
+
+.skills_section {
+    padding: 85px 24px 100px;
+    background: #faf9f7;
+}
+
+.skills_container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Heading */
+
+.skills_header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.skills_header h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(34px, 4vw, 45px);
+    color: #302429;
+    margin: 0 0 15px;
+}
+
+.skills_header p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #65545b;
+    max-width: 590px;
+    margin: 0 auto;
+}
+
+/* Card grid */
+
+.skills_grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Individual card */
+
+.skills_card {
+    background: #ffffff;
+    border: 1px solid #eadfe3;
+    border-radius: 12px;
+    padding: 28px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.skills_card:hover {
+    transform: translateY(-3px);
+    border-color: #d2afbd;
+    box-shadow: 0 10px 25px rgba(77, 36, 54, 0.06);
+}
+
+/* Card heading */
+
+.skills_card_title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.skills_card_title i {
+    color: #873e59;
+    font-size: 23px;
+}
+
+.skills_card_title h3 {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: #302429;
+}
+
+/* Card description */
+
+.skills_card > p {
+    margin: 0 0 22px;
+    color: #65545b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Individual skill tags */
+
+.skills_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.skills_tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    background: #f3e8ec;
+    border-radius: 6px;
+    color: #6d2945;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .skills_section {
+        padding: 65px 20px 75px;
+    }
+
+    .skills_grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .skills_card {
+        padding: 23px;
+    }
+
+    .skills_card_title h3 {
+        font-size: 19px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skills_card {
+        transition: none;
+    }
+
+    .skills_card:hover {
+        transform: none;
+    }
+}

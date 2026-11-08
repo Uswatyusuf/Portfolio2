@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Uswat Yusuf's professional experience, university leadership and education, and download her CV.">
+  <title>Experience | Uswat Yusuf</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    /* ======================================
+       GENERAL STYLES
+       ====================================== */
+
+    :root {
+      --burgundy: #6d2945;
+      --burgundy-dark: #4f1c31;
+      --nav: #260207;
+      --ink: #302429;
+      --muted: #65545b;
+      --light-muted: #84767c;
+      --background: #faf9f7;
+      --pink: #f3e8ec;
+      --border: #eadfe3;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1020px, calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    /* ======================================
+       NAVIGATION
+       ====================================== */
+
+    .site_nav {
+      background: var(--nav);
+    }
+
+    .nav_inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px 26px;
+      padding: 15px 0;
+    }
+
+    .brand {
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav_links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 11px 23px;
+    }
+
+    .nav_links a {
+      color: #f6ebef;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav_links a:hover,
+    .nav_links a[aria-current="page"] {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    /* ======================================
+       PAGE HEADER
+       ====================================== */
+
+    .page_intro {
+      padding: 75px 0 58px;
+    }
+
+    .eyebrow {
+      margin: 0 0 11px;
+      color: var(--burgundy);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .intro_row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    h1, h2, .education_card h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    h1 {
+      margin: 0 0 15px;
+      font-size: clamp(42px, 5.5vw, 60px);
+      line-height: 1.12;
+    }
+
+    .intro_text {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* ======================================
+       DOWNLOAD CV BUTTON
+       ====================================== */
+
+    .download_button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 19px;
+      min-height: 48px;
+      flex-shrink: 0;
+      border-radius: 7px;
+      color: #fff;
+      background: var(--burgundy);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .download_button:hover {
+      background: var(--burgundy-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ======================================
+       SECTION HEADINGS
+       ====================================== */
+
+    .resume_section {
+      margin-bottom: 66px;
+    }
+
+    .section_heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 0 0 18px;
+    }
+
+    .section_heading h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 31px);
+      line-height: 1.3;
+    }
+
+    .section_heading p {
+      margin: 0;
+      color: var(--light-muted);
+      font-size: 13px;
+    }
+
+    /* ======================================
+       EXPERIENCE ENTRIES
+       ====================================== */
+
+    .experience_list {
+      border-top: 1px solid var(--border);
+    }
+
+    .experience_item {
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr);
+      gap: 20px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Company icon/initials */
+
+    .company_mark {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      color: var(--burgundy);
+      background: var(--pink);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    /* Job title and dates */
+
+    .entry_top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px 20px;
+      flex-wrap: wrap;
+    }
+
+    .entry_top h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .entry_top h3 span {
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .date {
+      color: var(--burgundy);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .entry_meta {
+      margin: 4px 0 12px;
+      color: var(--light-muted);
+      font-size: 13px;
+    }
+
+    /* CAR-based descriptions */
+
+    .entry_description {
+      margin: 0;
+      max-width: 810px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .entry_description + .entry_description {
+      margin-top: 9px;
+    }
+
+    /* Related case-study links */
+
+    .entry_links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 12px;
+    }
+
+    .entry_links a {
+      color: var(--burgundy);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .entry_links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ======================================
+       EDUCATION
+       ====================================== */
+
+    .education_grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .education_card {
+      padding: 23px 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .education_card h3 {
+      margin: 0 0 9px;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .education_card p {
+      margin: 0 0 5px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .education_card .degree {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .education_card .education_date {
+      color: var(--burgundy);
+      font-size: 13px;
+    }
+
+    /* ======================================
+       FOOTER
+       ====================================== */
+
+    .site_footer {
+      padding: 28px 0 38px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer_inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer_inner p {
+      margin: 0;
+    }
+
+    .footer_inner a {
+      text-decoration: none;
+      color: var(--burgundy);
+      font-weight: 700;
+    }
+
+    .footer_inner a:hover {
+      text-decoration: underline;
+    }
+
+    /* ======================================
+       RESPONSIVE DESIGN
+       ====================================== */
+
+    @media (max-width: 760px) {
+
+      .nav_inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .page_intro {
+        padding: 50px 0 45px;
+      }
+
+      .intro_row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .entry_top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .education_grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .nav_links {
+        gap: 10px 16px;
+      }
+
+      .experience_item {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 13px;
+        padding: 24px 0;
+      }
+
+      .company_mark {
+        width: 42px;
+        height: 42px;
+        font-size: 12px;
+      }
+
+      .entry_top h3 {
+        font-size: 18px;
+      }
+
+      .section_heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .download_button {
+        transition: none;
+      }
+
+      .download_button:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======================================
+       NAVIGATION
+       ====================================== -->
+
+  <nav class="site_nav" aria-label="Main navigation">
+
+    <div class="container nav_inner">
+
+      <a class="brand" href="../index.html">
+        Uswat Yusuf
+      </a>
+
+      <div class="nav_links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#aboutme">About</a>
+
+        <a href="../index.html#skills">Skills</a>
+
+        <a href="experience.html" aria-current="page">
+          Experience
+        </a>
+
+        <a href="../index.html#projects">Projects</a>
+
+        <a href="../index.html#contact">Contact</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <main class="container">
+
+    <!-- ======================================
+         PAGE INTRODUCTION
+         ====================================== -->
+
+    <header class="page_intro">
+
+      <p class="eyebrow">
+        Professional Background
+      </p>
+
+      <div class="intro_row">
+
+        <div>
+
+          <h1>Experience</h1>
+
+          <p class="intro_text">
+            From applied AI research to software development
+            and evaluating conversational AI, I've worked
+            across technical projects, collaborative teams
+            and student-facing roles. Here's a snapshot
+            of my experience.
+          </p>
+
+        </div>
+
+        <!-- CV PDF goes in Portfolio2/assets/ -->
+
+        <a
+          class="download_button"
+          href="../assets/Uswat_Yusuf_CV.pdf"
+          download="Uswat_Yusuf_CV.pdf"
+          type="application/pdf"
+        >
+          <i class="bi bi-download" aria-hidden="true"></i>
+          Download CV
+        </a>
+
+      </div>
+
+    </header>
+
+
+    <!-- ======================================
+         PROFESSIONAL EXPERIENCE
+         ====================================== -->
+
+    <section class="resume_section"
+             aria-labelledby="professional-heading">
+
+      <div class="section_heading">
+        <h2 id="professional-heading">
+          Professional Experience
+        </h2>
+      </div>
+
+      <div class="experience_list">
+
+        <!-- ==================================
+             ORTOM AI
+             ================================== -->
+
+        <article class="experience_item">
+
+          <div class="company_mark" aria-hidden="true">
+            O
+          </div>
+
+          <div>
+
+            <div class="entry_top">
+
+              <h3>
+                Trainee AI Consultant
+                <span>· Ortom AI</span>
+              </h3>
+
+              <span class="date">
+                Oct 2025 – Mar 2026
+              </span>
+
+            </div>
+
+            <p class="entry_meta">
+              AI Consultancy · Manchester, UK
+            </p>
+
+            <p class="entry_description">
+              A conversational AI assistant operating in
+              a sensitive healthcare setting needed safe,
+              reliable responses. I developed and ran
+              156 structured evaluations using Pydantic
+              Evals and LLM-as-a-Judge to assess safety
+              and response quality, achieving a
+              <strong>90% pass rate</strong> across
+              the test cases.
+            </p>
+
+            <p class="entry_description">
+              I also investigated AI/ML approaches for
+              client projects, documenting findings
+              and assessing potential solutions against
+              technical and business requirements.
+            </p>
+
+            <div class="entry_links">
+
+              <a href="projects/healthcare-ai-safety-evaluation.html">
+                View related case study
+                <i class="bi bi-arrow-up-right"
+                   aria-hidden="true"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- ==================================
+             SPACEKRAFT — JUNIOR DEVELOPER
+             ================================== -->
+
+        <article class="experience_item">
+
+          <div class="company_mark" aria-hidden="true">
+            SK
+          </div>
+
+          <div>
+
+            <div class="entry_top">
+
+              <h3>
+                Junior Software Developer
+                <span>· SpaceKraft Ltd</span>
+              </h3>
+
+              <span class="date">
+                Jul 2024 – May 2025 · Oct 2025 – Sep 2026
+              </span>
+
+            </div>
+
+            <p class="entry_meta">
+              Interactive Educational Software · Shipley, UK
+            </p>
+
+            <p class="entry_description">
+              Interactive educational applications needed
+              to be reliable, accessible and adaptable
+              to user requirements. I developed Java/OpenGL
+              features, investigated integration problems
+              and debugged functionality, including
+              configurable audio features, to improve
+              usability and application reliability.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- ==================================
+             REALISE LAB
+             ================================== -->
+
+        <article class="experience_item">
+
+          <div class="company_mark" aria-hidden="true">
+            RL
+          </div>
+
+          <div>
+
+            <div class="entry_top">
+
+              <h3>
+                Research Intern
+                <span>· REALISE Lab, Concordia University</span>
+              </h3>
+
+              <span class="date">
+                Jun – Sep 2025
+              </span>
+
+            </div>
+
+            <p class="entry_meta">
+              AI Research · Montréal, Canada
+            </p>
+
+            <p class="entry_description">
+              LLM code completion depends on retrieving
+              relevant context from a repository.
+              I conducted quantitative experiments
+              comparing retrieval strategies and analysed
+              performance metrics, identifying approaches
+              that improved results by
+              <strong>up to 16%</strong>.
+              This contributed to a third-place finish
+              in the JetBrains Code Completion
+              Competition 2025.
+            </p>
+
+            <p class="entry_description">
+              Working with fellow researchers, I evaluated
+              technical trade-offs and contributed as
+              first author to a paper accepted at an
+              ASE 2025 workshop.
+            </p>
+
+            <div class="entry_links">
+
+              <a href="projects/llm-code-completion.html">
+                View related case study
+                <i class="bi bi-arrow-up-right"
+                   aria-hidden="true"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- ==================================
+             SPACEKRAFT — INTERNSHIP
+             ================================== -->
+
+        <article class="experience_item">
+
+          <div class="company_mark" aria-hidden="true">
+            SK
+          </div>
+
+          <div>
+
+            <div class="entry_top">
+
+              <h3>
+                Software Developer Intern
+                <span>· SpaceKraft Ltd</span>
+              </h3>
+
+              <span class="date">
+                May – Jul 2024
+              </span>
+
+            </div>
+
+            <p class="entry_meta">
+              Software Development · Shipley, UK
+            </p>
+
+            <p class="entry_description">
+              To explore more natural ways to interact
+              with applications, I developed a real-time
+              motion-tracking prototype using Python
+              and MediaPipe, enabling users' body
+              movements to act as inputs.
+              I researched and integrated unfamiliar
+              technologies as the project
+              requirements evolved.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         LEADERSHIP & UNIVERSITY INVOLVEMENT
+         ====================================== -->
+
+    <section class="resume_section"
+             aria-labelledby="leadership-heading">
+
+      <div class="section_heading">
+
+        <h2 id="leadership-heading">
+          Leadership &amp; University Involvement
+        </h2>
+
+      </div>
+
+      <div class="experience_list">
+
+        <!-- ==================================
+             PAL LEADER
+             ================================== -->
+
+        <article class="experience_item">
+
+          <div class="company_mark" aria-hidden="true">
+            <i class="bi bi-people"></i>
+          </div>
+
+          <div>
+
+            <div class="entry_top">
+
+              <h3>
+                Peer Assisted Learning (PAL) Leader
+                <span>· University of Bradford</span>
+              </h3>
+
+              <span class="date">
+                Sep 2024 – Apr 2025
+              </span>
+
+            </div>
+
+            <p class="entry_description">
+              Some first-year students were new to
+              programming and needed additional support
+              with coursework. I facilitated collaborative
+              study sessions, explained technical concepts
+              in manageable steps and encouraged group
+              problem-solving to build students'
+              understanding and confidence.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- ==================================
+             STUDENT AMBASSADOR
+             ================================== -->
+
+        <article class="experience_item">
+
+          <div class="company_mark" aria-hidden="true">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+
+          <div>
+
+            <div class="entry_top">
+
+              <h3>
+                Student Ambassador
+                <span>· University of Bradford</span>
+              </h3>
+
+              <span class="date">
+                Feb 2024 – Apr 2026
+              </span>
+
+            </div>
+
+            <p class="entry_description">
+              Prospective students and visitors needed
+              clear information and a welcoming experience
+              at university events. I supported event
+              activities and engaged with attendees,
+              developing my communication, interpersonal
+              and organisational skills.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         EDUCATION
+         ====================================== -->
+
+    <section class="resume_section"
+             aria-labelledby="education-heading">
+
+      <div class="section_heading">
+
+        <h2 id="education-heading">
+          Education
+        </h2>
+
+      </div>
+
+      <div class="education_grid">
+
+        <!-- MSC -->
+
+        <article class="education_card">
+
+          <h3>
+            Manchester Metropolitan University
+          </h3>
+
+          <p class="degree">
+            MSc Data Science with Placement Year
+          </p>
+
+          <p class="education_date">
+            2026–2028 · In Progress
+          </p>
+
+        </article>
+
+
+        <!-- BSC -->
+
+        <article class="education_card">
+
+          <h3>
+            University of Bradford
+          </h3>
+
+          <p class="degree">
+            BSc (Hons) Applied Artificial Intelligence
+          </p>
+
+          <p class="education_date">
+            2023–2026 · First-Class Honours
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ======================================
+       FOOTER
+       ====================================== -->
+
+  <footer class="site_footer">
+
+    <div class="container footer_inner">
+
+      <p>© 2026 Uswat Yusuf</p>
+
+      <a href="../index.html#projects">
+        Explore my projects
+        <i class="bi bi-arrow-up-right"
+           aria-hidden="true"></i>
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
